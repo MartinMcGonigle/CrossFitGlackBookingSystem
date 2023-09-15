@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\marti\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\CrossFit.Glack.Customer.csproj": {}
+    "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\CrossFit.Glack.Customer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\marti\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\CrossFit.Glack.Customer.csproj": {
+    "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\CrossFit.Glack.Customer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\marti\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\CrossFit.Glack.Customer.csproj",
+        "projectUniqueName": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\CrossFit.Glack.Customer.csproj",
         "projectName": "CrossFit.Glack.Customer",
-        "projectPath": "C:\\Users\\marti\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\CrossFit.Glack.Customer.csproj",
-        "packagesPath": "C:\\Users\\marti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\marti\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\obj\\",
+        "projectPath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\CrossFit.Glack.Customer.csproj",
+        "packagesPath": "C:\\Users\\mcgoniglem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\marti\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mcgoniglem\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,12 +27,20 @@
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Domain\\CrossFit.Glack.Domain.csproj": {
+                "projectPath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Domain\\CrossFit.Glack.Domain.csproj"
+              },
+              "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Repository\\CrossFit.Glack.Repository.csproj": {
+                "projectPath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Repository\\CrossFit.Glack.Repository.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -47,23 +55,23 @@
           "dependencies": {
             "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.20, )"
+              "version": "[6.0.21, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.20, )"
+              "version": "[6.0.21, )"
             },
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
-              "version": "[6.0.20, )"
+              "version": "[6.0.21, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.20, )"
+              "version": "[6.0.21, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "target": "Package",
-              "version": "[6.0.20, )"
+              "version": "[6.0.21, )"
             }
           },
           "imports": [
@@ -81,6 +89,138 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Domain\\CrossFit.Glack.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Domain\\CrossFit.Glack.Domain.csproj",
+        "projectName": "CrossFit.Glack.Domain",
+        "projectPath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Domain\\CrossFit.Glack.Domain.csproj",
+        "packagesPath": "C:\\Users\\mcgoniglem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mcgoniglem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.20, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Repository\\CrossFit.Glack.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Repository\\CrossFit.Glack.Repository.csproj",
+        "projectName": "CrossFit.Glack.Repository",
+        "projectPath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Repository\\CrossFit.Glack.Repository.csproj",
+        "packagesPath": "C:\\Users\\mcgoniglem\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\mcgoniglem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.telerik.com/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Domain\\CrossFit.Glack.Domain.csproj": {
+                "projectPath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\CrossFitGlackBookingSystem\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Domain\\CrossFit.Glack.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

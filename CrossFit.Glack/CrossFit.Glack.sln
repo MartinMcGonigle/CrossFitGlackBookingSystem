@@ -5,13 +5,15 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Website", "Website", "{8E3251D6-4676-401C-976D-C8056E9F6E75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossFit.Glack.Staff", "CrossFit.Glack.Staff\CrossFit.Glack.Staff.csproj", "{A775E37C-945B-4C23-BAAA-AE01B4B4D500}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossFit.Glack.Staff", "CrossFit.Glack.Staff\CrossFit.Glack.Staff.csproj", "{A775E37C-945B-4C23-BAAA-AE01B4B4D500}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{FBB7D9E4-1E82-4168-9D1D-7F888A58408D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossFit.Glack.Domain", "CrossFit.Glack.Domain\CrossFit.Glack.Domain.csproj", "{2816EA83-B911-451A-A415-C366E9A4AD47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossFit.Glack.Domain", "CrossFit.Glack.Domain\CrossFit.Glack.Domain.csproj", "{2816EA83-B911-451A-A415-C366E9A4AD47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossFit.Glack.Customer", "CrossFit.Glack.Customer\CrossFit.Glack.Customer.csproj", "{7E078C5E-B747-4617-9382-0A44C8639720}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossFit.Glack.Customer", "CrossFit.Glack.Customer\CrossFit.Glack.Customer.csproj", "{7E078C5E-B747-4617-9382-0A44C8639720}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossFit.Glack.Repository", "CrossFit.Glack.Repository\CrossFit.Glack.Repository.csproj", "{428F9404-5FE6-4A4F-999C-6057B069E642}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,10 @@ Global
 		{7E078C5E-B747-4617-9382-0A44C8639720}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E078C5E-B747-4617-9382-0A44C8639720}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E078C5E-B747-4617-9382-0A44C8639720}.Release|Any CPU.Build.0 = Release|Any CPU
+		{428F9404-5FE6-4A4F-999C-6057B069E642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{428F9404-5FE6-4A4F-999C-6057B069E642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{428F9404-5FE6-4A4F-999C-6057B069E642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{428F9404-5FE6-4A4F-999C-6057B069E642}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -39,6 +45,7 @@ Global
 		{A775E37C-945B-4C23-BAAA-AE01B4B4D500} = {8E3251D6-4676-401C-976D-C8056E9F6E75}
 		{2816EA83-B911-451A-A415-C366E9A4AD47} = {FBB7D9E4-1E82-4168-9D1D-7F888A58408D}
 		{7E078C5E-B747-4617-9382-0A44C8639720} = {8E3251D6-4676-401C-976D-C8056E9F6E75}
+		{428F9404-5FE6-4A4F-999C-6057B069E642} = {FBB7D9E4-1E82-4168-9D1D-7F888A58408D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {734CCD10-9AFC-4084-87A2-85A82ADF9BAD}

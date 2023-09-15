@@ -1,0 +1,12 @@
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\bin\Debug\net6.0\CrossFit.Glack.Domain.deps.json
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\bin\Debug\net6.0\CrossFit.Glack.Domain.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\bin\Debug\net6.0\CrossFit.Glack.Domain.pdb
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\obj\Debug\net6.0\CrossFit.Glack.Domain.csproj.AssemblyReference.cache
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\obj\Debug\net6.0\CrossFit.Glack.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\obj\Debug\net6.0\CrossFit.Glack.Domain.AssemblyInfoInputs.cache
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\obj\Debug\net6.0\CrossFit.Glack.Domain.AssemblyInfo.cs
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\obj\Debug\net6.0\CrossFit.Glack.Domain.csproj.CoreCompileInputs.cache
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\obj\Debug\net6.0\CrossFit.Glack.Domain.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\obj\Debug\net6.0\refint\CrossFit.Glack.Domain.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\obj\Debug\net6.0\CrossFit.Glack.Domain.pdb
+C:\Users\mcgoniglem\source\PortfolioProjects\CrossFitGlackBookingSystem\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Domain\obj\Debug\net6.0\ref\CrossFit.Glack.Domain.dll
