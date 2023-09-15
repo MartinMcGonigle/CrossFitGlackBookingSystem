@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\CrossFit.Glack.Customer.props" />
+</Project>
