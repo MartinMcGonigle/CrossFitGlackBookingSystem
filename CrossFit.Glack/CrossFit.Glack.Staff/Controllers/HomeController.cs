@@ -1,9 +1,11 @@
 ﻿using CrossFit.Glack.Staff.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace CrossFit.Glack.Staff.Controllers
 {
+    [Authorize(Roles = "SuperUser, Staff")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;

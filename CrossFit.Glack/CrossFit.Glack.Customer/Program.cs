@@ -1,9 +1,10 @@
-using CrossFit.Glack.Customer.Data;
 using CrossFit.Glack.Domain.Context;
 using CrossFit.Glack.Domain.Models;
 using CrossFit.Glack.Repository.Wrapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
+using CrossFit.Glack.Service.Messages;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -55,7 +56,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromHours(4));
 
 // builder.Services.Configure<EmailConfirmationTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromDays(3));
-// 
+
 builder.Services.ConfigureApplicationCookie(options =>
 {
     // Cookie settings
@@ -67,6 +68,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
+builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

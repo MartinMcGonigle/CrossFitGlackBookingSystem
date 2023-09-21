@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CrossFit.Glack.Repository.Interfaces;
 
 namespace CrossFit.Glack.Repository.Wrapper
 {
     public interface IRepositoryWrapper
     {
+        IMailServerRepository MailServerRepository { get; }
+
+        IMembershipTypeRepository MembershipTypeRepository { get; }
+
         void Save();
     }
 }

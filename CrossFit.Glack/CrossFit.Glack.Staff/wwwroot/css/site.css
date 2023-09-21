@@ -16,3 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+label.required:after {
+    color: red;
+    font-size: x-large;
+    content: " *";
+}

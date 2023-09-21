@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CrossFit.Glack.Domain\CrossFit.Glack.Domain.csproj" />
     <ProjectReference Include="..\CrossFit.Glack.Repository\CrossFit.Glack.Repository.csproj" />
+    <ProjectReference Include="..\CrossFit.Glack.Service\CrossFit.Glack.Service.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -11,7 +11,6 @@
 using System;
 using System.Reflection;
 
-[assembly: Microsoft.AspNetCore.Identity.UI.UIFrameworkAttribute("Bootstrap5")]
 [assembly: Microsoft.Extensions.Configuration.UserSecrets.UserSecretsIdAttribute("aspnet-CrossFit.Glack.Staff-8b2f3729-8bd7-499a-b89f-9d47b9b9bd1f")]
 [assembly: System.Reflection.AssemblyCompanyAttribute("CrossFit.Glack.Staff")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]

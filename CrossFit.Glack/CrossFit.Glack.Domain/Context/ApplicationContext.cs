@@ -1,11 +1,6 @@
 ﻿using CrossFit.Glack.Domain.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CrossFit.Glack.Domain.Context
 {
@@ -16,5 +11,9 @@ namespace CrossFit.Glack.Domain.Context
         { }
 
         public DbSet<ApplicationUser> ApplicationUser { get; set; }
+
+        public DbSet<MailServer> MailServers { get; set; }
+
+        public DbSet<MembershipType> MembershipTypes { get; set; }
     }
 }

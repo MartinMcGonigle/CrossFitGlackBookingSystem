@@ -1,4 +1,6 @@
 ﻿using CrossFit.Glack.Domain.Context;
+using CrossFit.Glack.Repository.Interfaces;
+using CrossFit.Glack.Repository.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +16,36 @@ namespace CrossFit.Glack.Repository.Wrapper
         public RepositoryWrapper(ApplicationContext applicationContext)
         {
             this.applicationContext = applicationContext;
+        }
+
+        private IMailServerRepository mailServerRepository;
+
+        public IMailServerRepository MailServerRepository
+        {
+            get
+            {
+                if (mailServerRepository == null)
+                {
+                    mailServerRepository = new MailServerRepository(applicationContext);
+                }
+
+                return mailServerRepository;
+            }
+        }
+
+        private IMembershipTypeRepository membershipTypeRepository;
+
+        public IMembershipTypeRepository MembershipTypeRepository
+        {
+            get
+            {
+                if (membershipTypeRepository == null)
+                {
+                    membershipTypeRepository = new MembershipTypeRepository(applicationContext);
+                }
+
+                return membershipTypeRepository;
+            }
         }
 
         public void Save()

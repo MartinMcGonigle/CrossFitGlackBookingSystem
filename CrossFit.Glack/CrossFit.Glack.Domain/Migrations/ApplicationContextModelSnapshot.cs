@@ -22,6 +22,73 @@ namespace CrossFit.Glack.Domain.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("CrossFit.Glack.Domain.Models.MailServer", b =>
+                {
+                    b.Property<int>("MailServerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MailServerId"), 1L, 1);
+
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MailServerIP")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("MailServerName")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("MailServerPassword")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("MailServerPort")
+                        .HasColumnType("int");
+
+                    b.Property<string>("MailServerUserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("MailServerId");
+
+                    b.ToTable("MailServer");
+                });
+
+            modelBuilder.Entity("CrossFit.Glack.Domain.Models.MembershipType", b =>
+                {
+                    b.Property<int>("MembershipTypeId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MembershipTypeId"), 1L, 1);
+
+                    b.Property<bool>("MembershipTypeActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("MembershipTypeDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("MembershipTypePrice")
+                        .HasColumnType("float");
+
+                    b.Property<string>("MembershipTypeTitle")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.HasKey("MembershipTypeId");
+
+                    b.ToTable("MembershipType");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
