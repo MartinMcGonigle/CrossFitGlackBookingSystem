@@ -15,6 +15,8 @@ namespace CrossFit.Glack.Domain.Models
         public string MembershipTypeTitle { get; set; }
 
         [Display(Name = "Price")]
+        [Required]
+        [Range(0, double.MaxValue)]
         public double MembershipTypePrice { get; set; }
 
         [Required]

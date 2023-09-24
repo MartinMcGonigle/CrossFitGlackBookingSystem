@@ -1,4 +1,4 @@
-﻿@model MembershipType;
+﻿@model MembershipType
 
 @{
     ViewData["Title"] = "Create Membership Type";
@@ -43,20 +43,63 @@
                         <div class="mb-3">
                             <label asp-for="MembershipTypeActive" class="control-label fw-bold required"></label>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="MembershipTypeActive" id="MembershipTypeActive1" />
-                                <label class="form-check-label" for="MembershipTypeActive1">
-                                    <b>Yes</b> - 
-                                </label>
+                                @if (Model != null)
+                                {
+                                    @if (Model.MembershipTypeActive == true)
+                                    {
+                                        <input class="form-check-input" type="radio" name="MembershipTypeActive" id="MembershipTypeActive1" value="True" checked  />
+                                        <label class="form-check-label" for="MembershipTypeActive1">
+                                            <b>Yes</b> -
+                                        </label>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-check-input" type="radio" name="MembershipTypeActive" id="MembershipTypeActive1" value="True" />
+                                        <label class="form-check-label" for="MembershipTypeActive1">
+                                            <b>Yes</b> -
+                                        </label>
+                                    }
+                                }
+                                else
+                                {
+                                    <input class="form-check-input" type="radio" name="MembershipTypeActive" id="MembershipTypeActive1" value="True" />
+                                    <label class="form-check-label" for="MembershipTypeActive1">
+                                        <b>Yes</b> -
+                                    </label>
+                                }
                             </div>
 
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="MembershipTypeActive" id="MembershipTypeActive2" />
-                                <label class="form-check-label" for="MembershipTypeActive2">
-                                    <b>No</b> -
-                                </label>
+                                @if (Model != null)
+                                {
+                                    @if (Model.MembershipTypeActive == false)
+                                    {
+                                        <input class="form-check-input" type="radio" name="MembershipTypeActive" id="MembershipTypeActive2" value="False" checked />
+                                        <label class="form-check-label" for="MembershipTypeActive2">
+                                            <b>No</b> -
+                                        </label>
+                                    }
+                                    else
+                                    {
+                                        <input class="form-check-input" type="radio" name="MembershipTypeActive" id="MembershipTypeActive2" value="False" />
+                                        <label class="form-check-label" for="MembershipTypeActive2">
+                                            <b>No</b> -
+                                        </label>
+                                    }
+                                }
+                                else
+                                {
+                                    <input class="form-check-input" type="radio" name="MembershipTypeActive" id="MembershipTypeActive2" value="False" checked />
+                                    <label class="form-check-label" for="MembershipTypeActive2">
+                                        <b>No</b> -
+                                    </label>
+                                }
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-lg btn-success">Save</button>
                 </div>
             </form>
         </section>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Q1BEVHviIzJdQcwm28Jl9vaQwQQ0DV0sIjSXGzalivKizhZaHNUjEkh09ispfvHuEdEiiVcRUNXM9qQzf7zCGQ==",
+  "dgSpecHash": "UkCNTPrBXnCO8ZQyTT5GsEflqQOEHYdsYUYesR6B1IWUFBke9gAcE9hhlTtQoDg9Smq2ZLCzTZhmjsKPp+Indg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Staff\\CrossFit.Glack.Staff.csproj",
   "expectedPackageFiles": [
@@ -64,7 +64,9 @@
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\6.0.22\\microsoft.aspnetcore.diagnostics.entityframeworkcore.6.0.22.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.22\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.22.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\6.0.22\\microsoft.aspnetcore.identity.ui.6.0.22.nupkg.sha512",
-    "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\6.0.22\\microsoft.aspnetcore.mvc.razor.extensions.6.0.22.nupkg.sha512",
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\6.0.22\\microsoft.aspnetcore.mvc.razor.runtimecompilation.6.0.22.nupkg.sha512",
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.22\\microsoft.aspnetcore.razor.language.6.0.22.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.build.framework\\17.3.2\\microsoft.build.framework.17.3.2.nupkg.sha512",
@@ -75,7 +77,7 @@
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.codeanalysis.csharp.features\\4.0.0\\microsoft.codeanalysis.csharp.features.4.0.0.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.codeanalysis.csharp.workspaces\\4.0.0\\microsoft.codeanalysis.csharp.workspaces.4.0.0.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.codeanalysis.features\\4.0.0\\microsoft.codeanalysis.features.4.0.0.nupkg.sha512",
-    "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.codeanalysis.razor\\6.0.0\\microsoft.codeanalysis.razor.6.0.0.nupkg.sha512",
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.codeanalysis.razor\\6.0.22\\microsoft.codeanalysis.razor.6.0.22.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.codeanalysis.scripting.common\\4.0.0\\microsoft.codeanalysis.scripting.common.4.0.0.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.0.0\\microsoft.codeanalysis.workspaces.common.4.0.0.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
