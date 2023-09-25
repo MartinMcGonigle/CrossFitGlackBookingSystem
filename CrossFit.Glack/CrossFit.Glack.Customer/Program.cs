@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using CrossFit.Glack.Service.Messages;
+using CrossFit.Glack.Service.CustomTokenProviders;
+using Microsoft.AspNetCore.DataProtection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,8 +27,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationContext>()
-    .AddDefaultTokenProviders();
-//.AddTokenProvider<EmailConfirmationTokenProvider<ApplicationUser>>("emailconfirmation");
+    .AddDefaultTokenProviders()
+    .AddTokenProvider<EmailConfirmationTokenProvider<ApplicationUser>>("emailconfirmation");
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -54,8 +56,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 builder.Services.Configure<DataProtectionTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromHours(4));
-
-// builder.Services.Configure<EmailConfirmationTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromDays(3));
+builder.Services.Configure<EmailConfirmationTokenProviderOptions>(opt => opt.TokenLifespan = TimeSpan.FromDays(3));
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -70,6 +71,11 @@ builder.Services.ConfigureApplicationCookie(options =>
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDataProtection()
+    .SetApplicationName("CrossFitGlack")
+    .PersistKeysToFileSystem(new DirectoryInfo(@"C:\logs\Keys"))
+    .ProtectKeysWithCertificate(builder.Configuration.GetSection("Cert").Value);
 
 var app = builder.Build();
 

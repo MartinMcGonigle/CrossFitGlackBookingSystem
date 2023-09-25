@@ -48,6 +48,21 @@ namespace CrossFit.Glack.Repository.Wrapper
             }
         }
 
+        private IMembershipRepository membershipRepository;
+
+        public IMembershipRepository MembershipRepository
+        {
+            get
+            {
+                if (membershipRepository == null)
+                {
+                    membershipRepository = new MembershipRepository(applicationContext);
+                }
+
+                return membershipRepository;
+            }
+        }
+
         public void Save()
         {
             applicationContext.SaveChanges();

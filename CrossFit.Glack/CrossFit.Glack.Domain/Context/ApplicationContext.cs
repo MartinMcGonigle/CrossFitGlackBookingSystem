@@ -15,5 +15,7 @@ namespace CrossFit.Glack.Domain.Context
         public DbSet<MailServer> MailServers { get; set; }
 
         public DbSet<MembershipType> MembershipTypes { get; set; }
+
+        public DbSet<Membership> Memberships { get; set; }
     }
 }

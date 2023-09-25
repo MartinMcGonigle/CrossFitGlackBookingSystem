@@ -8,6 +8,8 @@ namespace CrossFit.Glack.Repository.Wrapper
 
         IMembershipTypeRepository MembershipTypeRepository { get; }
 
+        IMembershipRepository MembershipRepository { get; }
+
         void Save();
     }
 }

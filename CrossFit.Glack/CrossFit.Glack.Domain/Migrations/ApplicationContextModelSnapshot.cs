@@ -61,6 +61,42 @@ namespace CrossFit.Glack.Domain.Migrations
                     b.ToTable("MailServer");
                 });
 
+            modelBuilder.Entity("CrossFit.Glack.Domain.Models.Membership", b =>
+                {
+                    b.Property<long>("MembershipId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("MembershipId"), 1L, 1);
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<bool>("MembershipActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("MembershipCreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("MembershipEndDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("MembershipStartDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("MembershipTypeId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MembershipId");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("MembershipTypeId");
+
+                    b.ToTable("Membership");
+                });
+
             modelBuilder.Entity("CrossFit.Glack.Domain.Models.MembershipType", b =>
                 {
                     b.Property<int>("MembershipTypeId")
@@ -314,6 +350,25 @@ namespace CrossFit.Glack.Domain.Migrations
                     b.HasDiscriminator().HasValue("ApplicationUser");
                 });
 
+            modelBuilder.Entity("CrossFit.Glack.Domain.Models.Membership", b =>
+                {
+                    b.HasOne("CrossFit.Glack.Domain.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany("Memberships")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CrossFit.Glack.Domain.Models.MembershipType", "MembershipType")
+                        .WithMany("Memberships")
+                        .HasForeignKey("MembershipTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("MembershipType");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -363,6 +418,16 @@ namespace CrossFit.Glack.Domain.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("CrossFit.Glack.Domain.Models.MembershipType", b =>
+                {
+                    b.Navigation("Memberships");
+                });
+
+            modelBuilder.Entity("CrossFit.Glack.Domain.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Memberships");
                 });
 #pragma warning restore 612, 618
         }

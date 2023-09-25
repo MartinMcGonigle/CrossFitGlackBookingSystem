@@ -1,10 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CrossFit.Glack.Domain.Models
 {
@@ -15,5 +10,7 @@ namespace CrossFit.Glack.Domain.Models
 
         [MaxLength(100)]
         public string LastName { get; set; }
+
+        public ICollection<Membership> Memberships { get; set; }
     }
 }
