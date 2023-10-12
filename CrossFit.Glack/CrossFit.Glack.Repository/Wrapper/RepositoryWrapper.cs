@@ -63,6 +63,95 @@ namespace CrossFit.Glack.Repository.Wrapper
             }
         }
 
+        private IStrengthRepository strengthRepository;
+
+        public IStrengthRepository StrengthRepository
+        {
+            get
+            {
+                if (strengthRepository == null)
+                {
+                    strengthRepository = new StrengthRepository(applicationContext);
+                }
+
+                return strengthRepository;
+            }
+        }
+
+        private IWarmupRepository warmupRepository;
+
+        public IWarmupRepository WarmupRepository
+        {
+            get
+            {
+                if (warmupRepository == null)
+                {
+                    warmupRepository = new WarmupRepository(applicationContext);
+                }
+
+                return warmupRepository;
+            }
+        }
+
+        private IWODRepository wodRepository;
+
+        public IWODRepository WODRepository
+        {
+            get
+            {
+                if (wodRepository == null)
+                {
+                    wodRepository = new WODRepository(applicationContext);
+                }
+
+                return wodRepository;
+            }
+        }
+
+        private IWorkoutRepository workoutRepository;
+
+        public IWorkoutRepository WorkoutRepository
+        {
+            get
+            {
+                if (workoutRepository == null)
+                {
+                    workoutRepository = new WorkoutRepository(applicationContext);
+                }
+
+                return workoutRepository;
+            }
+        }
+
+        private IClassRepository classRepository;
+
+        public IClassRepository ClassRepository
+        {
+            get
+            {
+                if (classRepository == null)
+                {
+                    classRepository = new ClassRepository(applicationContext);
+                }
+
+                return classRepository;
+            }
+        }
+
+        private IClassRegistrationRepository classRegistrationRepository;
+
+        public IClassRegistrationRepository ClassRegistrationRepository
+        {
+            get
+            {
+                if (classRegistrationRepository == null)
+                {
+                    classRegistrationRepository = new ClassRegistrationRepository(applicationContext);
+                }
+                return classRegistrationRepository;
+            }
+        }
+
         public void Save()
         {
             applicationContext.SaveChanges();

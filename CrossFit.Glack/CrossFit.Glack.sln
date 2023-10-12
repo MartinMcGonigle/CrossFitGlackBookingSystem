@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossFit.Glack.Customer", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossFit.Glack.Repository", "CrossFit.Glack.Repository\CrossFit.Glack.Repository.csproj", "{428F9404-5FE6-4A4F-999C-6057B069E642}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossFit.Glack.Service", "CrossFit.Glack.Service\CrossFit.Glack.Service.csproj", "{1BA84820-1E1A-4AF2-86AD-EF0D0937058F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossFit.Glack.Service", "CrossFit.Glack.Service\CrossFit.Glack.Service.csproj", "{1BA84820-1E1A-4AF2-86AD-EF0D0937058F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

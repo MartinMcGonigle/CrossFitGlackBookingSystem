@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Text.Encodings.Web;
 using CrossFit.Glack.Domain.Models;
+using CrossFit.Glack.Repository.Wrapper;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -13,6 +14,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
 {
@@ -25,6 +27,7 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
         private readonly IEmailSender _emailSender;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
+        private readonly IRepositoryWrapper _repositoryWrapper;
 
         public RegisterModel(
             SignInManager<ApplicationUser> signInManager,
@@ -32,14 +35,16 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
             RoleManager<IdentityRole> roleManager,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IRepositoryWrapper repositoryWrapper)
         {
-            _signInManager = signInManager;
-            _userManager = userManager;
-            _logger = logger;
-            _emailSender = emailSender;
-            _roleManager = roleManager;
-            _configuration = configuration;
+            this._signInManager = signInManager;
+            this._userManager = userManager;
+            this._logger = logger;
+            this._emailSender = emailSender;
+            this._roleManager = roleManager;
+            this._configuration = configuration;
+            this._repositoryWrapper = repositoryWrapper;
         }
 
         /// <summary>
@@ -106,13 +111,19 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
             [Required]
             [Display(Name = "Last Name")]
             public string LastName { get; set; }
+
+            [Display(Name = "Membership Type")]
+            public int MembershipTypeId { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
             var roles = _roleManager.Roles.ToList();
+            var membershipTypes = this._repositoryWrapper.MembershipTypeRepository.FindAll().Where(x => x.MembershipTypeActive);
+
             ViewData["roles"] = roles;
+            ViewData["membershipTypes"] = membershipTypes;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -150,6 +161,19 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
 
                     if (Input.Role == "Customer")
                     {
+                        var membership = new Membership
+                        {
+                            MembershipActive = true,
+                            MembershipCreationDate = DateTime.Now,
+                            MembershipStartDate = DateTime.Now,
+                            MembershipEndDate = DateTime.Now.AddMonths(1),
+                            ApplicationUserId = user.Id,
+                            MembershipTypeId = Input.MembershipTypeId
+                        };
+
+                        this._repositoryWrapper.MembershipRepository.Create(membership);
+                        this._repositoryWrapper.Save();
+
                         var staff = this._configuration.GetSection("WebUrls").GetSection("Staff").Value;
                         var customer = this._configuration.GetSection("WebUrls").GetSection("Customer").Value;
 
@@ -171,7 +195,10 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
             }
 
             var roles = _roleManager.Roles.ToList();
+            var membershipTypes = this._repositoryWrapper.MembershipTypeRepository.FindAll().Where(x => x.MembershipTypeActive);
+
             ViewData["roles"] = roles;
+            ViewData["membershipTypes"] = membershipTypes;
 
             // If we got this far, something failed, redisplay form
             return Page();

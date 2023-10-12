@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KnGCL8yj8NKRG6RoxAd7oP7s9frOd1x4iOR6u27SJ0E=",
+  "Hash": "Ah0XpCU+fMMS8hevHJFp/qyzHGhoNGdyLGq8qvbzeB4=",
   "Source": "CrossFit.Glack.Staff",
   "BasePath": "_content/CrossFit.Glack.Staff",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Staff\\wwwroot\\js\\_Registration.js",
+      "SourceId": "CrossFit.Glack.Staff",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Staff\\wwwroot\\",
+      "BasePath": "_content/CrossFit.Glack.Staff",
+      "RelativePath": "js/_Registration.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\_Registration.js"
     },
     {
       "Identity": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Staff\\wwwroot\\js\\site.js",

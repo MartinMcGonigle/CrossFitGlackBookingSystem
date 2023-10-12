@@ -10,6 +10,18 @@ namespace CrossFit.Glack.Repository.Wrapper
 
         IMembershipRepository MembershipRepository { get; }
 
+        IStrengthRepository StrengthRepository { get; }
+
+        IWarmupRepository WarmupRepository { get; }
+
+        IWODRepository WODRepository { get; }
+
+        IWorkoutRepository WorkoutRepository { get; }
+
+        IClassRepository ClassRepository { get; }
+
+        IClassRegistrationRepository ClassRegistrationRepository { get; }
+
         void Save();
     }
 }

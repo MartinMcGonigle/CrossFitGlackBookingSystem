@@ -1,0 +1,57 @@
+﻿@model WorkoutViewModel
+@{
+    ViewData["Title"] = "Create Workout";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Index" class="btn btn-sm btn-secondary">Go Back</a>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <section>
+            <form asp-action="Create" method="post">
+                <h4>Please enter workout details</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="card mb-3 bg-light">
+                    <div class="card-body">
+
+                        <input asp-for="Active" id="Active" name="Active" type="hidden" class="form-control" value="True" />
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Date" class="form-control" aria-required="true" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            <label asp-for="Date" class="form-label"></label>
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="WarmupDescription" class="form-control" />
+                            <label asp-for="WarmupDescription" class="form-label"></label>
+                            <span asp-validation-for="WarmupDescription" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="StrengthDescription" class="form-control" />
+                            <label asp-for="StrengthDescription" class="form-label"></label>
+                            <span asp-validation-for="StrengthDescription" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="WODDescription" class="form-control" />
+                            <label asp-for="WODDescription" class="form-label"></label>
+                            <span asp-validation-for="WODDescription" class="text-danger"></span>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-lg btn-success">Save</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

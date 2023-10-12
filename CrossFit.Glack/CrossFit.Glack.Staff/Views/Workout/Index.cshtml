@@ -1,0 +1,30 @@
+﻿@model Workout
+@{
+    ViewData["Title"] = "Workouts";
+    var date = (DateTime)ViewData["Date"];
+}
+
+<div class="row">
+    <div class="col-2">
+        <a asp-action="Index" asp-route-date="@date.Date.ToString("dd/MM/yyyy")" asp-route-offset="-1">&#9664;</a>
+    </div>
+
+    <div class="col-8 text-center">
+        <h3>Workout Details for @date.ToShortDateString()</h3>
+        <p>@date.ToString("dddd")</p>
+    </div>
+
+    <div class="col-2 text-right">
+        <a asp-action="Index" asp-route-date="@date.Date.ToString("dd/MM/yyyy")" asp-route-offset="1">&#9654;</a>
+    </div>
+</div>
+
+@if (Model != null)
+{
+    <a asp-action="Edit" asp-controller="Workout" asp-route-id="@Model.WorkoutId" class="btn btn-primary">Edit</a>
+    <a asp-action="Delete" asp-controller="Workout" asp-route-id="@Model.WorkoutId" class="btn btn-primary">Delete</a>
+}
+else
+{
+    <a asp-action="Create" asp-controller="Workout" class="btn btn-primary">Create</a>
+}

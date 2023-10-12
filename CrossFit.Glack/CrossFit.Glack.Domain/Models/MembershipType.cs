@@ -25,6 +25,6 @@ namespace CrossFit.Glack.Domain.Models
 
         public bool MembershipTypeActive { get; set; }
 
-        public ICollection<Membership> Memberships { get; set; }
+        // public ICollection<Membership> Memberships { get; set; }
     }
 }

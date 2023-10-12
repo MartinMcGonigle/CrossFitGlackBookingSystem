@@ -1,0 +1,112 @@
+﻿@model IEnumerable<ApplicationUser>
+@{
+    ViewData["Title"] = "View Users";
+}
+
+<div class="modal fade" id="notification-modal" tabindex="-1" role="dialog" aria-labelledby="notification-modal-label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="notification-modal-label">User Verification</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered table-striped table-hover">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+
+            <th scope="col">
+                Email
+            </th>
+
+            <th scope="col">
+                Email Confirmed
+            </th>
+
+            <th>
+                Role
+            </th>
+
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.FirstName @item.LastName
+                </td>
+
+                <td>
+                    @item.Email
+                </td>
+
+                <td>
+                    @item.EmailConfirmed
+                </td>
+
+                <td>
+                    @String.Join(",", item.UserRoles)
+                </td>
+
+                <td>
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdown-@item.Id" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Actions
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-@item.Id">
+                            @if (!item.EmailConfirmed)
+                            {
+                                <button data-id="@item.Id" class="dropdown-item resend-verification">Resend Verification</button>
+                            }
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $(".resend-verification").click(function () {
+                var id = $(this).data("id");
+                $.get("Resend-Verification-Link/" + id, function (data) {
+                    var message = '';
+                    if (data.success) {
+                        message = 'Successfully resent verification email.';
+                    } else {
+                        message = 'Failed to resend verification email.';
+                    }
+                    $("#notification-modal .modal-body p").text(message);
+                    $("#notification-modal").modal("show");
+                })
+                .fail(function () {
+                    var message = 'An error occurred while resending the verification email. Please try again later.';
+                    $("#notification-modal .modal-body p").text(message);
+                    $("#notification-modal").modal("show");
+                });
+            });
+        });
+    </script>
+}

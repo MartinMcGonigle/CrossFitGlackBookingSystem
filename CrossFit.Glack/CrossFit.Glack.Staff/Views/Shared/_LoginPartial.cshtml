@@ -11,9 +11,15 @@
                 <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
             </li>
 
+            <a class="dropdown-item" asp-controller="User" asp-action="Index">View Users</a>
+
             <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Create User</a>
 
             <a class="dropdown-item" asp-controller="MembershipType" asp-action="Create">Create Membership Type</a>
+
+            <a class="dropdown-item" asp-controller="Workout" asp-action="Index">Workout</a>
+
+            <a class="dropdown-item" asp-controller="Class" asp-action="Create">Create Class</a>
 
             <li class="nav-item">
                 <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
