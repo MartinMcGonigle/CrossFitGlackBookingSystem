@@ -15,14 +15,7 @@ namespace CrossFit.Glack.Domain.Models
         public string Title { get; set; }
 
         [Required]
-        [Display(Name = "Description")]
-        public string Description { get; set; }
-
-        [Required]
         public DateTime Date {  get; set; }
-
-        [Required]
-        public TimeSpan Time {  get; set; }
 
         [Required]
         [Display(Name = "Duration (Minutes)")]
@@ -38,15 +31,12 @@ namespace CrossFit.Glack.Domain.Models
         [Display(Name = "Available Spots")]
         public int AvailableSpots { get; set; }
 
-        [Required]
-        [MaxLength(100)]
-        public string Location { get; set; }
-
-        public string? SpecialRequirements { get; set; }
-
-        public string InstructorId { get; set; }
+        [Display(Name = "Coach")]
+        public string? InstructorId { get; set; }
 
         [ForeignKey("InstructorId")]
-        public ApplicationUser User { get; set; }
+        public ApplicationUser? User { get; set; }
+
+        public bool Active { get; set; }
     }
 }

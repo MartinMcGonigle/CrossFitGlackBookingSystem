@@ -19,6 +19,8 @@
 
                 <div class="card mb-3 bg-light">
                     <div class="card-body">
+
+                        <input asp-for="Active" id="Active" name="Active" type="hidden" class="form-control" value="True" />
                         
                         <div class="form-floating mb-3">
                             <input asp-for="Title" class="form-control" />
@@ -27,13 +29,7 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input asp-for="Description" class="form-control" />
-                            <label asp-for="Description" class="form-label"></label>
-                            <span asp-validation-for="Description" class="text-danger"></span>
-                        </div>
-
-                        <div class="form-floating mb-3">
-                            <input asp-for="Date" class="form-control" aria-required="true" type="date" min="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            <input asp-for="Date" class="form-control" aria-required="true" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
                             <label asp-for="Date" class="form-label"></label>
                             <span asp-validation-for="Date" class="text-danger"></span>
                         </div>
@@ -51,16 +47,13 @@
                         </div>
 
                         <div class="form-floating mb-3">
-                            <input asp-for="AvailableSpots" class="form-control" />
-                            <label asp-for="AvailableSpots" class="form-label"></label>
-                            <span asp-validation-for="AvailableSpots" class="text-danger"></span>
+                            <select asp-for="InstructorId" class="form-select" asp-items="@(new SelectList(ViewBag.Coaches, "Value", "Text"))">
+                                <option value="">Select a coach</option>
+                            </select>
+                            <label asp-for="InstructorId" class="form-label"></label>
+                            <span asp-validation-for="InstructorId" class="text-danger"></span>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="Location" class="form-control" />
-                            <label asp-for="Location" class="form-label"></label>
-                            <span asp-validation-for="Location" class="text-danger"></span>
-                        </div>
                     </div>
                 </div>
                 <div class="mb-3">

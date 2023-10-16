@@ -30,36 +30,23 @@ namespace CrossFit.Glack.Domain.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("ClassId"), 1L, 1);
 
+                    b.Property<bool>("Active")
+                        .HasColumnType("bit");
+
                     b.Property<int>("AvailableSpots")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("DurationInMinutes")
                         .HasColumnType("int");
 
                     b.Property<string>("InstructorId")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Location")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("MaxAttendees")
                         .HasColumnType("int");
-
-                    b.Property<string>("SpecialRequirements")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<TimeSpan>("Time")
-                        .HasColumnType("time");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -525,9 +512,7 @@ namespace CrossFit.Glack.Domain.Migrations
                 {
                     b.HasOne("CrossFit.Glack.Domain.Models.ApplicationUser", "User")
                         .WithMany()
-                        .HasForeignKey("InstructorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InstructorId");
 
                     b.Navigation("User");
                 });

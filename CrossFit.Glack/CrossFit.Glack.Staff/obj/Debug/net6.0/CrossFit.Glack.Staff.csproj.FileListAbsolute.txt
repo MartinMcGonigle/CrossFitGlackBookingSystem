@@ -1166,3 +1166,4 @@ C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookin
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\CrossFit.Glack.Staff.pdb
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\CrossFit.Glack.Staff.genruntimeconfig.cache
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\ref\CrossFit.Glack.Staff.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\libman.json

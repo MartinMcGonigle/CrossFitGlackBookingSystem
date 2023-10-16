@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using CrossFit.Glack.Service.Messages;
 using CrossFit.Glack.Service.CustomTokenProviders;
 using Microsoft.AspNetCore.DataProtection;
+using CrossFit.Glack.Service.Users;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -71,6 +72,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 
 builder.Services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
 builder.Services.AddTransient<IEmailSender, EmailSender>();
+builder.Services.AddScoped<UserManagerService>();
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDataProtection()

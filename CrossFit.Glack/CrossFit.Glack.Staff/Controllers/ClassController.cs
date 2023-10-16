@@ -1,4 +1,7 @@
-﻿using CrossFit.Glack.Repository.Wrapper;
+﻿using CrossFit.Glack.Domain.Models;
+using CrossFit.Glack.Repository.Wrapper;
+using CrossFit.Glack.Service.Users;
+using CrossFit.Glack.Staff.ViewResult;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,20 +12,141 @@ namespace CrossFit.Glack.Staff.Controllers
     {
         private readonly ILogger<ClassController> _logger;
         private readonly IRepositoryWrapper _repositoryWrapper;
+        private readonly UserManagerService _userManagerService;
         public readonly string logPrefix = "Ctlr|Class";
 
         public ClassController(
             ILogger<ClassController> logger,
-            IRepositoryWrapper repositoryWrapper)
+            IRepositoryWrapper repositoryWrapper,
+            UserManagerService userManagerService)
         {
             _logger = logger;
             _repositoryWrapper = repositoryWrapper;
+            _userManagerService = userManagerService;
         }
 
         [HttpGet]
         public IActionResult Create()
         {
+            ViewBag.Coaches = _userManagerService.GetCoachesSelectList();
+
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Class model)
+        {
+            ViewBag.Coaches = _userManagerService.GetCoachesSelectList();
+
+            if (model.Date <= DateTime.Now)
+            {
+                ModelState.AddModelError("Date", "You can not schedule a class for a date and time in the past.");
+                return View(model);
+            }
+
+            if (string.IsNullOrEmpty(model.InstructorId))
+            {
+                ModelState.AddModelError("InstructorId", "Please select which coach that will be leading the class.");
+                return View(model);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var existingClasses = _repositoryWrapper.ClassRepository.FindAll();
+            var endDate = model.Date.AddMinutes(model.DurationInMinutes);
+
+            if (existingClasses.Any(x => x.Date == model.Date || x.Date.AddMinutes(x.DurationInMinutes) == endDate || (model.Date > x.Date && model.Date < x.Date.AddMinutes(x.DurationInMinutes)) || (endDate > x.Date && endDate < x.Date.AddMinutes(x.DurationInMinutes))))
+            {
+                ModelState.AddModelError("Date", "Classes cannot overlap.");
+                return View(model);
+            }
+
+            _repositoryWrapper.ClassRepository.Create(model);
+            _repositoryWrapper.Save();
+            
+            return RedirectToAction(nameof(this.Create));
+        }
+
+        [HttpGet]
+        public IActionResult Edit(long id)
+        {
+            var model = _repositoryWrapper.ClassRepository.FindByCondition(x => x.ClassId == id).FirstOrDefault();
+
+            if (model == null)
+                return new NotFound();
+
+            ViewBag.Coaches = _userManagerService.GetCoachesSelectList();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(long classId, Class model)
+        {
+            var existingClass = _repositoryWrapper.ClassRepository.FindByCondition(x => x.ClassId == classId).FirstOrDefault();
+
+            if (existingClass == null)
+                return new NotFound();
+
+            ViewBag.Coaches = _userManagerService.GetCoachesSelectList();
+
+            if (model.Date <= DateTime.Now)
+            {
+                ModelState.AddModelError("Date", "You can not schedule a class for a date and time in the past.");
+                return View(model);
+            }
+
+            if (string.IsNullOrEmpty(model.InstructorId))
+            {
+                ModelState.AddModelError("InstructorId", "Please select which coach that will be leading the class.");
+                return View(model);
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var existingClasses = _repositoryWrapper.ClassRepository.FindAll().Where(c => c.ClassId != model.ClassId);
+            var endDate = model.Date.AddMinutes(model.DurationInMinutes);
+
+            if (existingClasses.Any(x => x.Date == model.Date || x.Date.AddMinutes(x.DurationInMinutes) == endDate || (model.Date > x.Date && model.Date < x.Date.AddMinutes(x.DurationInMinutes)) || (endDate > x.Date && endDate < x.Date.AddMinutes(x.DurationInMinutes))))
+            {
+                ModelState.AddModelError("Date", "Classes cannot overlap.");
+                return View(model);
+            }
+
+            // Update the existing class properties
+            existingClass.Title = model.Title;
+            existingClass.Date = model.Date;
+            existingClass.DurationInMinutes = model.DurationInMinutes;
+            existingClass.MaxAttendees = model.MaxAttendees;
+            existingClass.AvailableSpots = model.AvailableSpots;
+            existingClass.InstructorId = model.InstructorId;
+
+            _repositoryWrapper.ClassRepository.Update(existingClass);
+            _repositoryWrapper.Save();
+
+            return RedirectToAction(nameof(this.Create));
+        }
+
+        [HttpGet]
+        public IActionResult Delete(long id)
+        {
+            var model = _repositoryWrapper.ClassRepository.FindByCondition(x => x.ClassId == id).FirstOrDefault();
+
+            if (model == null)
+                return new NotFound();
+
+            model.Active = false;
+
+            _repositoryWrapper.ClassRepository.Update(model);
+            _repositoryWrapper.Save();
+
+            return RedirectToAction(nameof(this.Create));
+            // return RedirectToAction(nameof(this.Index));
         }
     }
 }

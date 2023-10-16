@@ -1,0 +1,67 @@
+﻿@model Class
+@{
+    ViewData["Title"] = "Edit Class";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Index" class="btn btn-sm btn-secondary"> Go Back</a>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-6">
+        <section>
+            <form asp-action="Edit" method="post">
+                <h4>Please edit class details</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="card mb-3 bg-light">
+                    <div class="card-body">
+                        
+                        <input asp-for="ClassId" type="hidden" class="form-control" />
+                        <input name="ClassId" value="@Model.ClassId" type="hidden" class="form-control" />
+
+                        <input asp-for="Active" id="Active" name="Active" type="hidden" class="form-control" value="True" />
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Title" class="form-control" />
+                            <label asp-for="Title" class="form-label"></label>
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Date" class="form-control" aria-required="true" type="datetime-local" min="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm")" />
+                            <label asp-for="Date" class="form-label"></label>
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="DurationInMinutes" class="form-control" />
+                            <label asp-for="DurationInMinutes" class="form-label"></label>
+                            <span asp-validation-for="DurationInMinutes" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="MaxAttendees" class="form-control" />
+                            <label asp-for="MaxAttendees" class="form-label"></label>
+                            <span asp-validation-for="MaxAttendees" class="text-danger"></span>
+                        </div>
+                        
+                        <div class="form-floating mb-3">
+                            <select asp-for="InstructorId" class="form-select" asp-items="@(new SelectList(ViewBag.Coaches, "Value", "Text"))">
+                                <option value="">Select a coach</option>
+                            </select>
+                            <label asp-for="InstructorId" class="form-label"></label>
+                            <span asp-validation-for="InstructorId" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-lg btn-success">Update</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
