@@ -10,21 +10,22 @@ namespace CrossFit.Glack.Staff.Controllers
     public class MembershipTypeController : Controller
     {
         private readonly ILogger<MembershipTypeController> _logger;
-        private readonly IRepositoryWrapper repositoryWrapper;
+        private readonly IRepositoryWrapper _repositoryWrapper;
         private const string prefix = "CTRL|MembershipType";
 
         public MembershipTypeController(
             ILogger<MembershipTypeController> logger,
             IRepositoryWrapper repositoryWrapper)
         {
-            this._logger = logger;
-            this.repositoryWrapper = repositoryWrapper;
+            _logger = logger;
+            _repositoryWrapper = repositoryWrapper;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            this._logger.LogInformation($"{prefix} - Displaying all membership types");
-            var membershipTypes = this.repositoryWrapper.MembershipTypeRepository.FindAll();
+            _logger.LogInformation($"{prefix} - Displaying all membership types");
+            var membershipTypes = _repositoryWrapper.MembershipTypeRepository.FindAll();
 
             return View(membershipTypes);
         }
@@ -41,9 +42,9 @@ namespace CrossFit.Glack.Staff.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            this._logger.LogInformation($"{prefix} - Creating membership type with name: {model.MembershipTypeTitle}");
-            this.repositoryWrapper.MembershipTypeRepository.Create(model);
-            this.repositoryWrapper.Save();
+            _logger.LogInformation($"{prefix} - Creating membership type with title: {model.MembershipTypeTitle}");
+            _repositoryWrapper.MembershipTypeRepository.Create(model);
+            _repositoryWrapper.Save();
 
             return RedirectToAction("Index");
         }
@@ -51,31 +52,48 @@ namespace CrossFit.Glack.Staff.Controllers
         [HttpGet]
         public IActionResult Edit(int membershipTypeId)
         {
-            var membershipType = this.repositoryWrapper.MembershipTypeRepository.FindByCondition(x => x.MembershipTypeId == membershipTypeId).FirstOrDefault();
+            var membershipType = _repositoryWrapper.MembershipTypeRepository.FindByCondition(x => x.MembershipTypeId == membershipTypeId).FirstOrDefault();
             if (membershipType == null)
                 return new NotFound();
 
-            return this.View(membershipType);
+            return View(membershipType);
         }
 
         [HttpPost]
         public IActionResult Edit(int membershipTypeId, MembershipType model)
         {
-            MembershipType data = this.repositoryWrapper.MembershipTypeRepository.FindByCondition(x => x.MembershipTypeId == membershipTypeId).FirstOrDefault();
+            MembershipType data = _repositoryWrapper.MembershipTypeRepository.FindByCondition(x => x.MembershipTypeId == membershipTypeId).FirstOrDefault();
 
             if (data == null)
                 return new NotFound();
 
             if (!ModelState.IsValid)
-                return this.View(model);
+                return View(model);
 
             data.MembershipTypeTitle = model.MembershipTypeTitle;
             data.MembershipTypePrice = model.MembershipTypePrice;
             data.MembershipTypeDescription = model.MembershipTypeDescription;
 
-            this._logger.LogInformation($"{prefix} - Updating membership type with id: {model.MembershipTypeId}");
-            this.repositoryWrapper.MembershipTypeRepository.Update(data);
-            this.repositoryWrapper.Save();
+            _logger.LogInformation($"{prefix} - Updating membership type with id: {data.MembershipTypeId}");
+            _repositoryWrapper.MembershipTypeRepository.Update(data);
+            _repositoryWrapper.Save();
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int membershipTypeId)
+        {
+            var membershipType = _repositoryWrapper.MembershipTypeRepository.FindByCondition(x => x.MembershipTypeId == membershipTypeId).FirstOrDefault();
+
+            if (membershipType == null)
+                return new NotFound();
+
+            membershipType.MembershipTypeActive = false;
+
+            _logger.LogInformation($"{prefix} - Deleting membership type with id: {membershipType.MembershipTypeId}");
+            _repositoryWrapper.MembershipTypeRepository.Update(membershipType);
+            _repositoryWrapper.Save();
 
             return RedirectToAction(nameof(this.Index));
         }

@@ -5,14 +5,12 @@
     var roles = ViewData["roles"];
 }
 
-@*
 <div class="row">
     <div class="col-md-12">
-        <a asp-action="Index" class="btn btn-sm btn-secondary">Go Back</a>
+        <a asp-controller="User" asp-action="Index" class="btn btn-sm btn-secondary"><i class="fas fa-chevron-left"></i> Go Back</a>
     </div>
 </div>
 <br />
-*@
 
 <div class="row">
     <div class="col-md-6">
@@ -27,31 +25,31 @@
                         
                         <div class="form-floating mb-3">
                             <input asp-for="Input.Email" class="form-control" autocomplete="off" aria-required="true" />
-                            <label asp-for="Input.Email"></label>
+                            <label asp-for="Input.Email" class="form-label"></label>
                             <span asp-validation-for="Input.Email" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3">
                             <input asp-for="Input.FirstName" class="form-control" aria-required="true" />
-                            <label asp-for="Input.FirstName"></label>
+                            <label asp-for="Input.FirstName" class="form-label"></label>
                             <span asp-validation-for="Input.FirstName" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3">
                             <input asp-for="Input.LastName" class="form-control" aria-required="true" />
-                            <label asp-for="Input.LastName"></label>
+                            <label asp-for="Input.LastName" class="form-label"></label>
                             <span asp-validation-for="Input.LastName" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3">
-                            <select asp-for="Input.Role" class="form-control">
+                            <select asp-for="Input.Role" class="form-control" aria-required="true">
                                 <option disabled selected value="">-- Select User Role --</option>
                                 @foreach (var userRole in (IEnumerable<IdentityRole>)ViewData["roles"])
                                 {
                                     <option value="@userRole.Name">@userRole.Name</option>
                                 }
                             </select>
-                            <label asp-for="Input.Role"></label>
+                            <label asp-for="Input.Role" class="form-label"></label>
                             <span asp-validation-for="Input.Role" class="text-danger"></span>
                         </div>
 
@@ -63,25 +61,27 @@
                                     <option value="@membershipType.MembershipTypeId">@membershipType.MembershipTypeTitle</option>
                                 }
                             </select>
-                            <label asp-for="Input.MembershipTypeId"></label>
+                            <label asp-for="Input.MembershipTypeId" class="form-label"></label>
                             <span asp-validation-for="Input.MembershipTypeId" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3">
                             <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" />
-                            <label asp-for="Input.Password"></label>
+                            <label asp-for="Input.Password" class="form-label"></label>
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3">
                             <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" />
-                            <label asp-for="Input.ConfirmPassword"></label>
+                            <label asp-for="Input.ConfirmPassword" class="form-label"></label>
                             <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                         </div>
                     </div>
                 </div>
 
-                <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Register</button>
+                <div class="mb-3">
+                    <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success"><i class="fas fa-user-plus"></i> Create User</button>
+                </div>
             </form>
         </section>
     </div>

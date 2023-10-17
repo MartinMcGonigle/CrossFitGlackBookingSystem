@@ -1,0 +1,52 @@
+﻿@model ApplicationUser
+@{
+    ViewData["Title"] = "Edit User Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Index" class="btn btn-sm btn-secondary"><i class="fas fa-chevron-left"></i> Go Back</a>
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <section>
+            <form asp-action="Edit" method="post">
+                <h2>Please edit user details</h2>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="card mb-3 bg-light">
+                    <div class="card-body">
+
+                        <input asp-for="Id" type="hidden" class="form-control" />
+                        <input name="Id" value="@Model.Id" type="hidden" class="form-control" />
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="Email" class="form-control" />
+                            <label asp-for="Email" class="form-label"></label>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="FirstName" class="form-control" aria-required="true" />
+                            <label asp-for="FirstName" class="form-label"></label>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="LastName" class="form-control" aria-required="true" />
+                            <label asp-for="LastName" class="form-label"></label>
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="w-100 btn btn-lg btn-success"><i class="fas fa-save"></i> Update User Details</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

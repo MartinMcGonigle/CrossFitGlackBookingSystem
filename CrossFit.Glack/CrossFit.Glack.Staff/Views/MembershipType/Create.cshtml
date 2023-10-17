@@ -1,15 +1,15 @@
 ﻿@model MembershipType
-
 @{
     ViewData["Title"] = "Create Membership Type";
 }
 
 <div class="row">
     <div class="col-md-12">
-        <a asp-action="Index" class="btn btn-sm btn-secondary">Go Back</a>
+        <a asp-action="Index" class="btn btn-sm btn-secondary"><i class="fas fa-chevron-left"></i> Go Back</a>
     </div>
 </div>
 <br />
+
 <div class="row">
     <div class="col-md-6">
         <section>
@@ -20,26 +20,28 @@
 
                 <div class="card mb-3 bg-light">
                     <div class="card-body">
+
+                        <input asp-for="MembershipTypeActive" id="MembershipTypeActive" name="MembershipTypeActive" type="hidden" class="form-control" value="True" />
                         
-                        <div class="mb-3">
-                            <label asp-for="MembershipTypeTitle" class="control-label fw-bold required"></label>
+                        <div class="form-floating mb-3">
                             <input asp-for="MembershipTypeTitle" class="form-control" />
+                            <label asp-for="MembershipTypeTitle" class="form-label"></label>
                             <span asp-validation-for="MembershipTypeTitle" class="text-danger"></span>
                         </div>
 
-                        <div class="mb-3">
-                            <label asp-for="MembershipTypePrice" class="control-label fw-bold required"></label>
+                        <div class="form-floating mb-3">
                             <input asp-for="MembershipTypePrice" class="form-control" type="number" step="0.01" />
+                            <label asp-for="MembershipTypePrice" class="form-label"></label>
                             <span asp-validation-for="MembershipTypePrice" class="text-danger"></span>
                         </div>
 
-                        <div class="mb-3">
-                            <label asp-for="MembershipTypeDescription" class="control-label fw-bold required"></label>
+                        <div class="form-floating mb-3">
                             <textarea asp-for="MembershipTypeDescription" style="min-height: 300px" class="form-control" rows="4" cols="50"></textarea>
+                            <label asp-for="MembershipTypeDescription" class="form-label"></label>
                             <span asp-validation-for="MembershipTypeDescription" class="text-danger"></span>
                         </div>
 
-
+                        @*
                         <div class="mb-3">
                             <label asp-for="MembershipTypeActive" class="control-label fw-bold required"></label>
                             <div class="form-check">
@@ -68,7 +70,7 @@
                                     </label>
                                 }
                             </div>
-
+                            
                             <div class="form-check">
                                 @if (Model != null)
                                 {
@@ -96,10 +98,11 @@
                                 }
                             </div>
                         </div>
+                        *@
                     </div>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-lg btn-success">Save</button>
+                    <button type="submit" class="w-100 btn btn-lg btn-success"><i class="fas fa-circle-plus"></i> Create Membership Type</button>
                 </div>
             </form>
         </section>

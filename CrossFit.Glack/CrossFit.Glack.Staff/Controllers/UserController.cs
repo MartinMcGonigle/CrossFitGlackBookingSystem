@@ -1,5 +1,6 @@
 ﻿using CrossFit.Glack.Domain.Models;
 using CrossFit.Glack.Repository.Wrapper;
+using CrossFit.Glack.Staff.ViewResult;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
@@ -18,30 +19,35 @@ namespace CrossFit.Glack.Staff.Controllers
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IEmailSender _emailSender;
         private readonly IConfiguration _configuration;
+        private readonly ILogger<UserController> _logger;
 
         public UserController(
             UserManager<ApplicationUser> userManager,
             IRepositoryWrapper repository,
             RoleManager<IdentityRole> roleManager,
             IEmailSender emailSender,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            ILogger<UserController> logger)
         {
             _userManager = userManager;
             _repository = repository;
             _roleManager = roleManager;
             _emailSender = emailSender;
             _configuration = configuration;
+            _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            var data = _userManager.Users;
-            foreach (var user in data)
+            var users = _userManager.Users;
+
+            foreach (var user in users)
             {
                 user.UserRoles = _userManager.GetRolesAsync(user).GetAwaiter().GetResult();
             }
 
-            return View(data);
+            return View(users);
         }
 
         [HttpGet("Resend-Verification-Link/{id}")]
@@ -50,9 +56,7 @@ namespace CrossFit.Glack.Staff.Controllers
             var user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
-            {
-                return NotFound();
-            }
+                return new NotFound();
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -83,7 +87,62 @@ namespace CrossFit.Glack.Staff.Controllers
             {
                 return Json(new { success = false });
             }
+        }
 
+        [HttpGet]
+        public async Task<IActionResult> Delete(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+                return new NotFound();
+            
+            await _userManager.DeleteAsync(user);
+            
+            return RedirectToAction(nameof(this.Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit (string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+                return new NotFound();
+
+            return View(user);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(string id, ApplicationUser model)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null)
+                return new NotFound();
+
+            if (ModelState.IsValid)
+            {
+                user.UserName = model.Email;
+                user.Email = model.Email;
+                user.FirstName = model.FirstName;
+                user.LastName = model.LastName;
+
+                var result = await _userManager.UpdateAsync(user);
+
+                if (result.Succeeded)
+                {
+                    _logger.LogInformation($"Successfully updated user account with id: {id}");
+
+                    return RedirectToAction(nameof(this.Index));
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+            }
+
+            return View(model);
         }
     }
 }

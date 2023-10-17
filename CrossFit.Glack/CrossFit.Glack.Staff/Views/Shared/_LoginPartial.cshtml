@@ -7,15 +7,9 @@
     {
         @if (User.IsInRole("SuperUser") || User.IsInRole("Staff"))
         {
-            <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
-            </li>
+            <a class="dropdown-item" asp-controller="User" asp-action="Index">Users</a>
 
-            <a class="dropdown-item" asp-controller="User" asp-action="Index">View Users</a>
-
-            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">Create User</a>
-
-            <a class="dropdown-item" asp-controller="MembershipType" asp-action="Create">Create Membership Type</a>
+            <a class="dropdown-item" asp-controller="MembershipType" asp-action="Index">Membership Types</a>
 
             <a class="dropdown-item" asp-controller="Workout" asp-action="Index">Workout</a>
 

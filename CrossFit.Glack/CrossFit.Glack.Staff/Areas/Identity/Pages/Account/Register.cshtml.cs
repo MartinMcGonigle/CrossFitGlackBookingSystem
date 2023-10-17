@@ -14,7 +14,6 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
 {
@@ -38,13 +37,13 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
             IConfiguration configuration,
             IRepositoryWrapper repositoryWrapper)
         {
-            this._signInManager = signInManager;
-            this._userManager = userManager;
-            this._logger = logger;
-            this._emailSender = emailSender;
-            this._roleManager = roleManager;
-            this._configuration = configuration;
-            this._repositoryWrapper = repositoryWrapper;
+            _signInManager = signInManager;
+            _userManager = userManager;
+            _logger = logger;
+            _emailSender = emailSender;
+            _roleManager = roleManager;
+            _configuration = configuration;
+            _repositoryWrapper = repositoryWrapper;
         }
 
         /// <summary>
@@ -106,10 +105,12 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
 
             [Required]
             [Display(Name = "First Name")]
+            [MaxLength(100)]
             public string FirstName { get; set; }
 
             [Required]
             [Display(Name = "Last Name")]
+            [MaxLength(100)]
             public string LastName { get; set; }
 
             [Display(Name = "Membership Type")]
@@ -120,7 +121,7 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
         {
             ReturnUrl = returnUrl;
             var roles = _roleManager.Roles.ToList();
-            var membershipTypes = this._repositoryWrapper.MembershipTypeRepository.FindAll().Where(x => x.MembershipTypeActive);
+            var membershipTypes = _repositoryWrapper.MembershipTypeRepository.FindAll().Where(x => x.MembershipTypeActive);
 
             ViewData["roles"] = roles;
             ViewData["membershipTypes"] = membershipTypes;
@@ -131,6 +132,7 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+            
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName };
@@ -143,11 +145,11 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
                     var userRoleResult = await _userManager.AddToRoleAsync(user, Input.Role);
                     if (userRoleResult.Succeeded)
                     {
-                        this._logger.LogInformation("User role added.");
+                        _logger.LogInformation("User role added.");
                     }
                     else
                     {
-                        this._logger.LogError($"Unable to add user {user} to the role {Input.Role}");
+                        _logger.LogError($"Unable to add user {user} to the role {Input.Role}");
                     }
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -168,14 +170,15 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
                             MembershipStartDate = DateTime.Now,
                             MembershipEndDate = DateTime.Now.AddMonths(1),
                             ApplicationUserId = user.Id,
-                            MembershipTypeId = Input.MembershipTypeId
+                            MembershipTypeId = Input.MembershipTypeId,
+                            MembershipAutoRenew = true,
                         };
 
-                        this._repositoryWrapper.MembershipRepository.Create(membership);
-                        this._repositoryWrapper.Save();
+                        _repositoryWrapper.MembershipRepository.Create(membership);
+                        _repositoryWrapper.Save();
 
-                        var staff = this._configuration.GetSection("WebUrls").GetSection("Staff").Value;
-                        var customer = this._configuration.GetSection("WebUrls").GetSection("Customer").Value;
+                        var staff = _configuration.GetSection("WebUrls").GetSection("Staff").Value;
+                        var customer = _configuration.GetSection("WebUrls").GetSection("Customer").Value;
 
                         callbackUrl = callbackUrl.Replace(staff, customer);
                     }
@@ -195,7 +198,7 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
             }
 
             var roles = _roleManager.Roles.ToList();
-            var membershipTypes = this._repositoryWrapper.MembershipTypeRepository.FindAll().Where(x => x.MembershipTypeActive);
+            var membershipTypes = _repositoryWrapper.MembershipTypeRepository.FindAll().Where(x => x.MembershipTypeActive);
 
             ViewData["roles"] = roles;
             ViewData["membershipTypes"] = membershipTypes;

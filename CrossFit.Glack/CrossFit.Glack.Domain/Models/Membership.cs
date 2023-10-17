@@ -27,11 +27,13 @@ namespace CrossFit.Glack.Domain.Models
         [Required]
         public int MembershipTypeId { get; set; }
 
+        [Required]
+        public bool MembershipAutoRenew { get; set; }
+
         [ForeignKey("ApplicationUserId")]
         public ApplicationUser ApplicationUser { get; set; }
 
         [ForeignKey("MembershipTypeId")]
         public MembershipType MembershipType { get; set; }
-
     }
 }

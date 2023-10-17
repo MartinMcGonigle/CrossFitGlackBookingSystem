@@ -22,3 +22,7 @@ label.required:after {
     font-size: x-large;
     content: " *";
 }
+
+.greenborder {
+    border: 2px solid #172e67;
+}

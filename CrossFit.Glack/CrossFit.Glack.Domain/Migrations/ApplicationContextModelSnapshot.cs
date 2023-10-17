@@ -140,6 +140,9 @@ namespace CrossFit.Glack.Domain.Migrations
                     b.Property<bool>("MembershipActive")
                         .HasColumnType("bit");
 
+                    b.Property<bool>("MembershipAutoRenew")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("MembershipCreationDate")
                         .HasColumnType("datetime2");
 

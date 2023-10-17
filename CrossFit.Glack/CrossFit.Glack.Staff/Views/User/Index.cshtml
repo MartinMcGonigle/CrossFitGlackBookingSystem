@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<ApplicationUser>
 @{
-    ViewData["Title"] = "View Users";
+    ViewData["Title"] = "View All Users";
 }
 
 <div class="modal fade" id="notification-modal" tabindex="-1" role="dialog" aria-labelledby="notification-modal-label" aria-hidden="true">
@@ -8,7 +8,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="notification-modal-label">User Verification</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -16,79 +16,115 @@
                 <p></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<table class="table table-bordered table-striped table-hover">
-    <thead>
-        <tr>
-            <th>
-                Name
-            </th>
-
-            <th scope="col">
-                Email
-            </th>
-
-            <th scope="col">
-                Email Confirmed
-            </th>
-
-            <th>
-                Role
-            </th>
-
-            <th>
-
-            </th>
-        </tr>
-    </thead>
-
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @item.FirstName @item.LastName
-                </td>
-
-                <td>
-                    @item.Email
-                </td>
-
-                <td>
-                    @item.EmailConfirmed
-                </td>
-
-                <td>
-                    @String.Join(",", item.UserRoles)
-                </td>
-
-                <td>
-                    <div class="dropdown">
-                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdown-@item.Id" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Actions
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdown-@item.Id">
-                            @if (!item.EmailConfirmed)
-                            {
-                                <button data-id="@item.Id" class="dropdown-item resend-verification">Resend Verification</button>
-                            }
+@if (Model.Any())
+{
+    <div class="card bg-light">
+        <div class="card-body">
+            <div role="search">
+                <div class="row">
+                    <div class="col-md-12 mb-2 mb-md-0">
+                        <div class="input-group">
+                            <input id="propert-details-search" class="form-control" type="text" placeholder="Search...">
+                            <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register"><i class="fas fa-circle-plus" aria-hidden="true"></i> Create User</a>
                         </div>
                     </div>
-                </td>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+
+    <table class="table table-bordered">
+        <thead class="table-secondary">
+            <tr>
+                <th>
+                    Name
+                </th>
+
+                <th scope="col">
+                    Email
+                </th>
+
+                <th scope="col">
+                    Email Confirmed
+                </th>
+
+                <th>
+                    Role
+                </th>
+
+                <th>
+
+                </th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+
+        <tbody id="propert-details-table">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.FirstName @item.LastName
+                    </td>
+
+                    <td>
+                        @item.Email
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmailConfirmed)
+                    </td>
+
+                    <td>
+                        @String.Join(",", item.UserRoles)
+                    </td>
+
+                    <td>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="dropdown-@item.Id" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Actions
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdown-@item.Id">
+                                <a asp-action="Edit" asp-route-id="@item.Id" class="dropdown-item"><i class="fas fa-edit" aria-hidden="true"></i> Edit User Details</a>
+                                <a asp-action="Delete" asp-route-id="@item.Id" class="dropdown-item"><i class="far fa-trash-alt" aria-hidden="true"></i> Delete User</a>
+                                @if (!item.EmailConfirmed)
+                                {
+                                    <button data-id="@item.Id" class="dropdown-item resend-verification"><i class="fas fa-mail-bulk" aria-hidden="true"></i> Resend Verification</button>
+                                }
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info" role="alert">
+        No users available. Please try again after some time.
+    </div>
+}
+
 
 @section scripts
 {
     <script>
         $(document).ready(function () {
+
+            $("#propert-details-search").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#propert-details-table tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
             $(".resend-verification").click(function () {
                 var id = $(this).data("id");
                 $.get("Resend-Verification-Link/" + id, function (data) {
