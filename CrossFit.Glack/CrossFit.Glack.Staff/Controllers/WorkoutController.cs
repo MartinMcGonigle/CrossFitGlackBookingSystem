@@ -98,6 +98,8 @@ namespace CrossFit.Glack.Staff.Controllers
                 workout.WODId = CreateWOD(model.WODDescription);
             }
 
+            _logger.LogInformation($"Creating workout for: {model.Date.ToShortDateString()}");
+
             // Create the Workout
             _repositoryWrapper.WorkoutRepository.Create(workout);
             _repositoryWrapper.Save();
@@ -112,7 +114,6 @@ namespace CrossFit.Glack.Staff.Controllers
 
             if (workout == null)
                 return new NotFound();
-            
 
             WorkoutViewModel workoutViewModel = new WorkoutViewModel
             {
@@ -145,7 +146,6 @@ namespace CrossFit.Glack.Staff.Controllers
 
             if (!ModelState.IsValid)
                 return View(model);
-
 
             if (!string.IsNullOrWhiteSpace(model.WarmupDescription))
             {
@@ -195,6 +195,8 @@ namespace CrossFit.Glack.Staff.Controllers
                 workout.WODId = null;
             }
 
+            _logger.LogInformation($"Updating workout with id: {workout.WorkoutId}");
+
             // Update the Workout
             _repositoryWrapper.WorkoutRepository.Update(workout);
             _repositoryWrapper.Save();
@@ -211,6 +213,8 @@ namespace CrossFit.Glack.Staff.Controllers
                 return new NotFound();
 
             workout.Active = false;
+
+            _logger.LogInformation($"Deleting workout with id: {workout.WorkoutId}");
 
             _repositoryWrapper.WorkoutRepository.Update(workout);
             _repositoryWrapper.Save();

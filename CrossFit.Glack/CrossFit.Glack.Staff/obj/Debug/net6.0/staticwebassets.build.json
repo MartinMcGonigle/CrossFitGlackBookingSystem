@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eZHch0hazmR23jBFbTWY/xBvt9TIH2MwRh0u3UUjvSA=",
+  "Hash": "syctjXJVaaUzDo8zP3OEji6mbhH4+ID2lHnWC6dNkEs=",
   "Source": "CrossFit.Glack.Staff",
   "BasePath": "_content/CrossFit.Glack.Staff",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\_Registration.js"
+    },
+    {
+      "Identity": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Staff\\wwwroot\\js\\_Tinymce.js",
+      "SourceId": "CrossFit.Glack.Staff",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Staff\\wwwroot\\",
+      "BasePath": "_content/CrossFit.Glack.Staff",
+      "RelativePath": "js/_Tinymce.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\_Tinymce.js"
     },
     {
       "Identity": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Staff\\wwwroot\\js\\site.js",

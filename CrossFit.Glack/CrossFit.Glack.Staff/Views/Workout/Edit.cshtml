@@ -5,11 +5,11 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a asp-action="Index" class="btn btn-sm btn-secondary">Go Back</a>
+        <a asp-action="Index" class="btn btn-sm btn-secondary"><i class="fas fa-chevron-left"></i> Go Back</a>
     </div>
 </div>
-
 <br />
+
 <div class="row">
     <div class="col-md-6">
         <section>
@@ -32,30 +32,33 @@
                             <span asp-validation-for="Date" class="text-danger"></span>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="WarmupDescription" class="form-control" />
-                            <label asp-for="WarmupDescription" class="form-label"></label>
+                        <div class="mb-3">
+                            <label asp-for="WarmupDescription" class="form-label fw-bold"></label>
+                            <textarea id="tiny" asp-for="WarmupDescription" class="form-control"></textarea>
                             <span asp-validation-for="WarmupDescription" class="text-danger"></span>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="StrengthDescription" class="form-control" />
-                            <label asp-for="StrengthDescription" class="form-label"></label>
+                        <div class="mb-3">
+                            <label asp-for="StrengthDescription" class="form-label fw-bold"></label>
+                            <textarea id="tiny" asp-for="StrengthDescription" class="form-control"></textarea>
                             <span asp-validation-for="StrengthDescription" class="text-danger"></span>
                         </div>
 
-                        <div class="form-floating mb-3">
-                            <input asp-for="WODDescription" class="form-control" />
-                            <label asp-for="WODDescription" class="form-label"></label>
+                        <div class="mb-3">
+                            <label asp-for="WODDescription" class="form-label fw-bold"></label>
+                            <textarea id="tiny" asp-for="WODDescription" class="form-control"></textarea>
                             <span asp-validation-for="WODDescription" class="text-danger"></span>
                         </div>
-
                     </div>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-lg btn-success">Save</button>
+                    <button type="submit" class="w-100 btn btn-lg btn-success"><i class="fas fa-save"></i> Update Workout</button>
                 </div>
             </form>
         </section>
     </div>
 </div>
+
+@section scripts {
+    <script src="~/js/_Tinymce.js"></script>
+}
