@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "LxNw4uCXjg381y9IIKzFjqVoVJp3bUhA20/lG71FW29nYGj2YUXSmgIeZOCe1wsEC6MDUOGjBo5QxgRuiJG4vg==",
+  "dgSpecHash": "31QEmhWGgVso6t0mRnrtxESH3gk5z7x1FoqYs0XjAp1jrIKmDZksCrSYcLwoncfjQxdJURkjkTjOVwdJakyXRg==",
   "success": true,
   "projectFilePath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Customer\\CrossFit.Glack.Customer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\dapper\\2.1.11\\dapper.2.1.11.nupkg.sha512",
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\dapper.parameterextensions\\2022.7.7.1\\dapper.parameterextensions.2022.7.7.1.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

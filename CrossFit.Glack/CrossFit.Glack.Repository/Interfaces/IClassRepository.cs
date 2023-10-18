@@ -4,5 +4,8 @@ namespace CrossFit.Glack.Repository.Interfaces
 {
     public interface IClassRepository : IRepositoryBase<Class>
     {
+        public IEnumerable<Class> GetTodaysClasses(DateTime dateTime);
+
+        public IEnumerable<Class> GetClassesInFuture(DateTime dateTime);
     }
 }

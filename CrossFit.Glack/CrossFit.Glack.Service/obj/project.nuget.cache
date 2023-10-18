@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "aBgNLrSV+k4/1fXcuoK3V+cZBwQW5Eg3TlTrjLluZ3Gwkg09xJ7QHVMCi63rYOND8J9pfpJWZe6zf33qCo/Lxg==",
+  "dgSpecHash": "AGm69FQpHKG4qvskHTC3c0xfdHYj/itPGOHyiOuqQSQ8hiqiIclmzPSDpNeFQGLNnY9HwIOW7YD9mf9q/fgqsA==",
   "success": true,
   "projectFilePath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Service\\CrossFit.Glack.Service.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\bouncycastle.cryptography\\2.2.1\\bouncycastle.cryptography.2.2.1.nupkg.sha512",
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\dapper\\2.1.11\\dapper.2.1.11.nupkg.sha512",
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\dapper.parameterextensions\\2022.7.7.1\\dapper.parameterextensions.2022.7.7.1.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\mailkit\\4.2.0\\mailkit.4.2.0.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.22\\microsoft.aspnetcore.cryptography.internal.6.0.22.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.22\\microsoft.aspnetcore.cryptography.keyderivation.6.0.22.nupkg.sha512",

@@ -1,6 +1,10 @@
 ﻿using CrossFit.Glack.Domain.Context;
 using CrossFit.Glack.Domain.Models;
 using CrossFit.Glack.Repository.Interfaces;
+using Dapper;
+using Microsoft.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace CrossFit.Glack.Repository.Repository
 {
@@ -9,6 +13,51 @@ namespace CrossFit.Glack.Repository.Repository
         public ClassRepository(ApplicationContext context) : base(context)
         {
 
+        }
+
+        public IEnumerable<Class> GetTodaysClasses(DateTime dateTime)
+        {
+
+            var connection = new SqlConnection(Context.Database.GetDbConnection().ConnectionString);
+            try
+            {
+                string sp = "spSelectTodaysClasses";
+                connection.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("dateTime", dateTime);
+                var data = connection.Query<Class>(sp, parameters, commandType: CommandType.StoredProcedure);
+
+                return data;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public IEnumerable<Class> GetClassesInFuture(DateTime dateTime)
+        {
+            var connection = new SqlConnection(Context.Database.GetDbConnection().ConnectionString);
+            try
+            {
+                string sp = "spSelectClassesInFuture";
+                connection.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("dateTime", dateTime);
+                var data = connection.Query<Class>(sp, parameters, commandType: CommandType.StoredProcedure);
+
+                return data;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
         }
     }
 }

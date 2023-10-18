@@ -38,5 +38,14 @@ namespace CrossFit.Glack.Domain.Models
         public ApplicationUser? User { get; set; }
 
         public bool Active { get; set; }
+
+        [Required]
+        public DateTime DateTimeEnd { get; set; }
+
+        [NotMapped]
+        public int? SlotsTaken { get; set; }
+
+        [NotMapped]
+        public string? InstructorName { get; set; }
     }
 }

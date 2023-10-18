@@ -39,6 +39,9 @@ namespace CrossFit.Glack.Domain.Migrations
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime>("DateTimeEnd")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("DurationInMinutes")
                         .HasColumnType("int");
 

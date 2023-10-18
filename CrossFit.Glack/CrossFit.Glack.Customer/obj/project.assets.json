@@ -15,6 +15,31 @@
           }
         }
       },
+      "Dapper/2.1.11": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Dapper.ParameterExtensions/2022.7.7.1": {
+        "type": "package",
+        "dependencies": {
+          "Dapper": "2.0.123"
+        },
+        "compile": {
+          "lib/netstandard2.0/DapperParameters.Nuget.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/DapperParameters.Nuget.dll": {}
+        }
+      },
       "Humanizer/2.14.1": {
         "type": "package",
         "dependencies": {
@@ -4168,7 +4193,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "CrossFit.Glack.Domain": "1.0.0"
+          "CrossFit.Glack.Domain": "1.0.0",
+          "Dapper": "2.1.11",
+          "Dapper.ParameterExtensions": "2022.7.7.1"
         },
         "compile": {
           "bin/placeholder/CrossFit.Glack.Repository.dll": {}
@@ -4214,6 +4241,37 @@
         "lib/netstandard2.0/BouncyCastle.Cryptography.dll",
         "lib/netstandard2.0/BouncyCastle.Cryptography.xml",
         "packageIcon.png"
+      ]
+    },
+    "Dapper/2.1.11": {
+      "sha512": "4S2ysi5sxGID6TiAkNpAu4eqkGU1gZjOJ+UAygIdkWFEAX02S8NwUuUzqkqbHL9FTRgimwbz99xte2luMCm6iw==",
+      "type": "package",
+      "path": "dapper/2.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Dapper.png",
+        "dapper.2.1.11.nupkg.sha512",
+        "dapper.nuspec",
+        "lib/net461/Dapper.dll",
+        "lib/net461/Dapper.xml",
+        "lib/net5.0/Dapper.dll",
+        "lib/net5.0/Dapper.xml",
+        "lib/netstandard2.0/Dapper.dll",
+        "lib/netstandard2.0/Dapper.xml",
+        "readme.md"
+      ]
+    },
+    "Dapper.ParameterExtensions/2022.7.7.1": {
+      "sha512": "mYH+wyd/cVb9czbY9qbKZPvbHLcA++2PTFgLhwv6fyeTgbPcwgS/Nn88nNgngDzVuaYev36ZkznqWOliA7A3PQ==",
+      "type": "package",
+      "path": "dapper.parameterextensions/2022.7.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dapper.parameterextensions.2022.7.7.1.nupkg.sha512",
+        "dapper.parameterextensions.nuspec",
+        "lib/netstandard2.0/DapperParameters.Nuget.dll"
       ]
     },
     "Humanizer/2.14.1": {

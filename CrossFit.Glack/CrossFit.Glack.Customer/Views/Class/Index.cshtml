@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Class>
+@{
+    ViewData["Title"] = "Classes";
+    var date = (DateTime)ViewData["Date"];
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2 text-start">
+            <a asp-action="Index" asp-route-date="@date.Date.ToString("dd/MM/yyyy")" asp-route-offset="-1" class="btn btn-secondary">
+                <i class="fas fa-chevron-left"></i>
+            </a>
+        </div>
+
+        <div class="col-md-8 text-center">
+            <h3>@date.ToString("dddd, MMMM dd")</h3>
+        </div>
+
+        <div class="col-md-2 text-end">
+            <a asp-action="Index" asp-route-date="@date.Date.ToString("dd/MM/yyyy")" asp-route-offset="1" class="btn btn-secondary">
+                <i class="fas fa-chevron-right"></i>
+            </a>
+        </div>
+    </div>
+    <hr />
+
+    @if (Model.Any())
+    {
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <table class="table table-borderless">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="card mb-2 border border-dark bg-light px-2">
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5 class="modal-title"> @item.Title</h5>
+                                            </div>
+
+                                            <div class="col-md-6 text-end">
+                                                <p class="card-text">
+                                                    @item.SlotsTaken / @item.MaxAttendees
+                                                </p>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <p class="card-text">
+                                                    @item.Date.ToString("hh:mm") - @item.DateTimeEnd.ToString("hh:mm")
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p class="card-text">
+                                                    @item.InstructorName
+                                                </p>
+                                            </div>
+
+                                            <div class="col-md-6 text-end">
+                                                <p class="card-text">
+                                                    @item.SlotsTaken / @item.MaxAttendees
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info mt-4" role="alert">
+            Nothing to see here folks! No more classes available.
+        </div>
+    }
+</div>

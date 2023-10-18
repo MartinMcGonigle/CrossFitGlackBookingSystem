@@ -8,10 +8,31 @@
     ".NETCoreApp,Version=v6.0": {
       "CrossFit.Glack.Repository/1.0.0": {
         "dependencies": {
-          "CrossFit.Glack.Domain": "1.0.0"
+          "CrossFit.Glack.Domain": "1.0.0",
+          "Dapper": "2.1.11",
+          "Dapper.ParameterExtensions": "2022.7.7.1"
         },
         "runtime": {
           "CrossFit.Glack.Repository.dll": {}
+        }
+      },
+      "Dapper/2.1.11": {
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.11.47313"
+          }
+        }
+      },
+      "Dapper.ParameterExtensions/2022.7.7.1": {
+        "dependencies": {
+          "Dapper": "2.1.11"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DapperParameters.Nuget.dll": {
+            "assemblyVersion": "2022.7.7.1",
+            "fileVersion": "2022.7.7.1"
+          }
         }
       },
       "Microsoft.AspNetCore.Cryptography.Internal/6.0.20": {
@@ -535,6 +556,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Dapper/2.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4S2ysi5sxGID6TiAkNpAu4eqkGU1gZjOJ+UAygIdkWFEAX02S8NwUuUzqkqbHL9FTRgimwbz99xte2luMCm6iw==",
+      "path": "dapper/2.1.11",
+      "hashPath": "dapper.2.1.11.nupkg.sha512"
+    },
+    "Dapper.ParameterExtensions/2022.7.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mYH+wyd/cVb9czbY9qbKZPvbHLcA++2PTFgLhwv6fyeTgbPcwgS/Nn88nNgngDzVuaYev36ZkznqWOliA7A3PQ==",
+      "path": "dapper.parameterextensions/2022.7.7.1",
+      "hashPath": "dapper.parameterextensions.2022.7.7.1.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Cryptography.Internal/6.0.20": {
       "type": "package",

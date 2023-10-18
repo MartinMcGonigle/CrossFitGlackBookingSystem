@@ -4,6 +4,7 @@ using CrossFit.Glack.Service.Users;
 using CrossFit.Glack.Staff.ViewResult;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 
 namespace CrossFit.Glack.Staff.Controllers
 {
@@ -23,6 +24,40 @@ namespace CrossFit.Glack.Staff.Controllers
             _logger = logger;
             _repositoryWrapper = repositoryWrapper;
             _userManagerService = userManagerService;
+        }
+
+        [HttpGet]
+        public IActionResult Index(string date, int offset = 0)
+        {
+            DateTime dateTime;
+
+            if (string.IsNullOrEmpty(date) || !DateTime.TryParseExact(date, "dd/MM/yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime))
+            {
+                dateTime = DateTime.Now;
+            }
+
+            // Adjust the date based on the offset
+            dateTime = dateTime.AddDays(offset);
+
+            IEnumerable<Class> data;
+            if (dateTime.Date == DateTime.Today)
+            {
+                DateTime currentDateTime = DateTime.Now;
+                dateTime = new DateTime(currentDateTime.Year, currentDateTime.Month, currentDateTime.Day, currentDateTime.Hour, currentDateTime.Minute, 0);
+                data = _repositoryWrapper.ClassRepository.GetTodaysClasses(dateTime);
+            }
+            else if (dateTime.Date > DateTime.Today)
+            {
+                data = _repositoryWrapper.ClassRepository.GetClassesInFuture(dateTime);
+            }
+            else
+            {
+                data = Enumerable.Empty<Class>();
+            }
+
+            ViewData["Date"] = dateTime;
+
+            return View(data);
         }
 
         [HttpGet]
@@ -56,9 +91,9 @@ namespace CrossFit.Glack.Staff.Controllers
             }
 
             var existingClasses = _repositoryWrapper.ClassRepository.FindAll();
-            var endDate = model.Date.AddMinutes(model.DurationInMinutes);
+            model.DateTimeEnd = model.Date.AddMinutes(model.DurationInMinutes);
 
-            if (existingClasses.Any(x => x.Date == model.Date || x.Date.AddMinutes(x.DurationInMinutes) == endDate || (model.Date > x.Date && model.Date < x.Date.AddMinutes(x.DurationInMinutes)) || (endDate > x.Date && endDate < x.Date.AddMinutes(x.DurationInMinutes))))
+            if (existingClasses.Any(x => x.Date == model.Date || x.Date.AddMinutes(x.DurationInMinutes) == model.DateTimeEnd || (model.Date > x.Date && model.Date < x.Date.AddMinutes(x.DurationInMinutes)) || (model.DateTimeEnd > x.Date && model.DateTimeEnd < x.Date.AddMinutes(x.DurationInMinutes))))
             {
                 ModelState.AddModelError("Date", "Classes cannot overlap.");
                 return View(model);
@@ -67,7 +102,7 @@ namespace CrossFit.Glack.Staff.Controllers
             _repositoryWrapper.ClassRepository.Create(model);
             _repositoryWrapper.Save();
             
-            return RedirectToAction(nameof(this.Create));
+            return RedirectToAction(nameof(this.Index));
         }
 
         [HttpGet]
@@ -110,9 +145,9 @@ namespace CrossFit.Glack.Staff.Controllers
                 return View(model);
             }
             var existingClasses = _repositoryWrapper.ClassRepository.FindAll().Where(c => c.ClassId != model.ClassId);
-            var endDate = model.Date.AddMinutes(model.DurationInMinutes);
+            model.DateTimeEnd = model.Date.AddMinutes(model.DurationInMinutes);
 
-            if (existingClasses.Any(x => x.Date == model.Date || x.Date.AddMinutes(x.DurationInMinutes) == endDate || (model.Date > x.Date && model.Date < x.Date.AddMinutes(x.DurationInMinutes)) || (endDate > x.Date && endDate < x.Date.AddMinutes(x.DurationInMinutes))))
+            if (existingClasses.Any(x => x.Date == model.Date || x.Date.AddMinutes(x.DurationInMinutes) == model.DateTimeEnd || (model.Date > x.Date && model.Date < x.Date.AddMinutes(x.DurationInMinutes)) || (model.DateTimeEnd > x.Date && model.DateTimeEnd < x.Date.AddMinutes(x.DurationInMinutes))))
             {
                 ModelState.AddModelError("Date", "Classes cannot overlap.");
                 return View(model);
@@ -125,6 +160,7 @@ namespace CrossFit.Glack.Staff.Controllers
             existingClass.MaxAttendees = model.MaxAttendees;
             existingClass.AvailableSpots = model.AvailableSpots;
             existingClass.InstructorId = model.InstructorId;
+            existingClass.DateTimeEnd = model.DateTimeEnd;
 
             _repositoryWrapper.ClassRepository.Update(existingClass);
             _repositoryWrapper.Save();

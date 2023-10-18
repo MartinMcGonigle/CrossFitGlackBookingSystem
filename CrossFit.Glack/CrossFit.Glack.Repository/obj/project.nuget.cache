@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "A4woH1bGwjtL5mki8EhP27D73wDv6JdjPDj8pKcGqA8Ma5/xEPjeuEIRQdFFzxHkliD5bzBhYrWUYRQgZXE20A==",
+  "dgSpecHash": "5EGsHWxu5BwE8fu+5iPyYIhLMrkVpV3PM/1mVn7BAWQiJyX412lbRX+IUSVyMS8xhuv+MbQOmE18KkjyA/ob8g==",
   "success": true,
   "projectFilePath": "C:\\Users\\mcgoniglem\\source\\PortfolioProjects\\MartinMcGonigle\\CrossFitGlackBookingSystem\\CrossFit.Glack\\CrossFit.Glack.Repository\\CrossFit.Glack.Repository.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\dapper\\2.1.11\\dapper.2.1.11.nupkg.sha512",
+    "C:\\Users\\mcgoniglem\\.nuget\\packages\\dapper.parameterextensions\\2022.7.7.1\\dapper.parameterextensions.2022.7.7.1.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.20\\microsoft.aspnetcore.cryptography.internal.6.0.20.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.20\\microsoft.aspnetcore.cryptography.keyderivation.6.0.20.nupkg.sha512",
     "C:\\Users\\mcgoniglem\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.20\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.20.nupkg.sha512",

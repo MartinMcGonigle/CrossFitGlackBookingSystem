@@ -44,7 +44,7 @@ namespace CrossFit.Glack.Staff.Controllers
 
             ViewData["Date"] = dateTime;
 
-            return this.View(workout);
+            return View(workout);
         }
 
         [HttpGet]

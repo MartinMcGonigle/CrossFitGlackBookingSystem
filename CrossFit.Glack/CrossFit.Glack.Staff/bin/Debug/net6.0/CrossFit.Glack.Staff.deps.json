@@ -350,6 +350,31 @@
           "lib/net6.0/BouncyCastle.Cryptography.dll": {}
         }
       },
+      "Dapper/2.1.11": {
+        "runtime": {
+          "lib/net5.0/Dapper.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.1.11.47313"
+          }
+        },
+        "compile": {
+          "lib/net5.0/Dapper.dll": {}
+        }
+      },
+      "Dapper.ParameterExtensions/2022.7.7.1": {
+        "dependencies": {
+          "Dapper": "2.1.11"
+        },
+        "runtime": {
+          "lib/netstandard2.0/DapperParameters.Nuget.dll": {
+            "assemblyVersion": "2022.7.7.1",
+            "fileVersion": "2022.7.7.1"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/DapperParameters.Nuget.dll": {}
+        }
+      },
       "Humanizer/2.14.1": {
         "dependencies": {
           "Humanizer.Core.af": "2.14.1",
@@ -3411,7 +3436,9 @@
       },
       "CrossFit.Glack.Repository/1.0.0": {
         "dependencies": {
-          "CrossFit.Glack.Domain": "1.0.0"
+          "CrossFit.Glack.Domain": "1.0.0",
+          "Dapper": "2.1.11",
+          "Dapper.ParameterExtensions": "2022.7.7.1"
         },
         "runtime": {
           "CrossFit.Glack.Repository.dll": {}
@@ -5164,6 +5191,20 @@
       "sha512": "sha512-A6Zr52zVqJKt18ZBsTnX0qhG0kwIQftVAjLmszmkiR/trSp8H+xj1gUOzk7XHwaKgyREMSV1v9XaKrBUeIOdvQ==",
       "path": "bouncycastle.cryptography/2.2.1",
       "hashPath": "bouncycastle.cryptography.2.2.1.nupkg.sha512"
+    },
+    "Dapper/2.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4S2ysi5sxGID6TiAkNpAu4eqkGU1gZjOJ+UAygIdkWFEAX02S8NwUuUzqkqbHL9FTRgimwbz99xte2luMCm6iw==",
+      "path": "dapper/2.1.11",
+      "hashPath": "dapper.2.1.11.nupkg.sha512"
+    },
+    "Dapper.ParameterExtensions/2022.7.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mYH+wyd/cVb9czbY9qbKZPvbHLcA++2PTFgLhwv6fyeTgbPcwgS/Nn88nNgngDzVuaYev36ZkznqWOliA7A3PQ==",
+      "path": "dapper.parameterextensions/2022.7.7.1",
+      "hashPath": "dapper.parameterextensions.2022.7.7.1.nupkg.sha512"
     },
     "Humanizer/2.14.1": {
       "type": "package",
