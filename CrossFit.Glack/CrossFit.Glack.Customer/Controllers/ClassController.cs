@@ -3,6 +3,7 @@ using CrossFit.Glack.Repository.Wrapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
+using System.Security.Claims;
 
 namespace CrossFit.Glack.Customer.Controllers
 {
@@ -51,6 +52,31 @@ namespace CrossFit.Glack.Customer.Controllers
             ViewData["Date"] = dateTime;
 
             return View(data);
+        }
+
+        [HttpGet]
+        public IActionResult ReserveClass(long id, string date)
+        {
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            var classRegistration = new ClassRegistration
+            {
+                ClassId = id,
+                UserId = userId,
+            };
+
+            _repositoryWrapper.ClassRegistrationRepository.Create(classRegistration);
+            _repositoryWrapper.Save();
+
+            return RedirectToAction("Index", new { date = date});
+        }
+
+        [HttpGet]
+        public IActionResult WhosComing(long id, string date)
+        {
+            var classRegistration = _repositoryWrapper.ClassRegistrationRepository.GetReservations(id);
+
+            return View(classRegistration);
         }
     }
 }

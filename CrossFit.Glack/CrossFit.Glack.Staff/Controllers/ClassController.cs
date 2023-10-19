@@ -4,6 +4,7 @@ using CrossFit.Glack.Service.Users;
 using CrossFit.Glack.Staff.ViewResult;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Globalization;
 
 namespace CrossFit.Glack.Staff.Controllers
@@ -165,7 +166,7 @@ namespace CrossFit.Glack.Staff.Controllers
             _repositoryWrapper.ClassRepository.Update(existingClass);
             _repositoryWrapper.Save();
 
-            return RedirectToAction(nameof(this.Create));
+            return RedirectToAction(nameof(this.Index));
         }
 
         [HttpGet]
@@ -181,8 +182,16 @@ namespace CrossFit.Glack.Staff.Controllers
             _repositoryWrapper.ClassRepository.Update(model);
             _repositoryWrapper.Save();
 
-            return RedirectToAction(nameof(this.Create));
-            // return RedirectToAction(nameof(this.Index));
+            return RedirectToAction(nameof(this.Index));
+        }
+
+        [HttpGet]
+        public IActionResult WhosComing(long id, string dateTime)
+        {
+            var classRegistration = _repositoryWrapper.ClassRegistrationRepository.GetReservations(id);
+
+            ViewData["Date"] = dateTime;
+            return View(classRegistration);
         }
     }
 }

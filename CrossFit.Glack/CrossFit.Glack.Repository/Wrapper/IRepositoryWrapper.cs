@@ -22,6 +22,8 @@ namespace CrossFit.Glack.Repository.Wrapper
 
         IClassRegistrationRepository ClassRegistrationRepository { get; }
 
+        INewsFeedRepository NewsFeedRepository { get; }
+
         void Save();
     }
 }

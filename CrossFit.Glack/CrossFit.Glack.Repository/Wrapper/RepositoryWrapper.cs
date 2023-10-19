@@ -1,11 +1,6 @@
 ﻿using CrossFit.Glack.Domain.Context;
 using CrossFit.Glack.Repository.Interfaces;
 using CrossFit.Glack.Repository.Repository;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CrossFit.Glack.Repository.Wrapper
 {
@@ -18,137 +13,152 @@ namespace CrossFit.Glack.Repository.Wrapper
             this.applicationContext = applicationContext;
         }
 
-        private IMailServerRepository mailServerRepository;
+        private IMailServerRepository _mailServerRepository;
 
         public IMailServerRepository MailServerRepository
         {
             get
             {
-                if (mailServerRepository == null)
+                if (_mailServerRepository == null)
                 {
-                    mailServerRepository = new MailServerRepository(applicationContext);
+                    _mailServerRepository = new MailServerRepository(applicationContext);
                 }
 
-                return mailServerRepository;
+                return _mailServerRepository;
             }
         }
 
-        private IMembershipTypeRepository membershipTypeRepository;
+        private IMembershipTypeRepository _membershipTypeRepository;
 
         public IMembershipTypeRepository MembershipTypeRepository
         {
             get
             {
-                if (membershipTypeRepository == null)
+                if (_membershipTypeRepository == null)
                 {
-                    membershipTypeRepository = new MembershipTypeRepository(applicationContext);
+                    _membershipTypeRepository = new MembershipTypeRepository(applicationContext);
                 }
 
-                return membershipTypeRepository;
+                return _membershipTypeRepository;
             }
         }
 
-        private IMembershipRepository membershipRepository;
+        private IMembershipRepository _membershipRepository;
 
         public IMembershipRepository MembershipRepository
         {
             get
             {
-                if (membershipRepository == null)
+                if (_membershipRepository == null)
                 {
-                    membershipRepository = new MembershipRepository(applicationContext);
+                    _membershipRepository = new MembershipRepository(applicationContext);
                 }
 
-                return membershipRepository;
+                return _membershipRepository;
             }
         }
 
-        private IStrengthRepository strengthRepository;
+        private IStrengthRepository _strengthRepository;
 
         public IStrengthRepository StrengthRepository
         {
             get
             {
-                if (strengthRepository == null)
+                if (_strengthRepository == null)
                 {
-                    strengthRepository = new StrengthRepository(applicationContext);
+                    _strengthRepository = new StrengthRepository(applicationContext);
                 }
 
-                return strengthRepository;
+                return _strengthRepository;
             }
         }
 
-        private IWarmupRepository warmupRepository;
+        private IWarmupRepository _warmupRepository;
 
         public IWarmupRepository WarmupRepository
         {
             get
             {
-                if (warmupRepository == null)
+                if (_warmupRepository == null)
                 {
-                    warmupRepository = new WarmupRepository(applicationContext);
+                    _warmupRepository = new WarmupRepository(applicationContext);
                 }
 
-                return warmupRepository;
+                return _warmupRepository;
             }
         }
 
-        private IWODRepository wodRepository;
+        private IWODRepository _wodRepository;
 
         public IWODRepository WODRepository
         {
             get
             {
-                if (wodRepository == null)
+                if (_wodRepository == null)
                 {
-                    wodRepository = new WODRepository(applicationContext);
+                    _wodRepository = new WODRepository(applicationContext);
                 }
 
-                return wodRepository;
+                return _wodRepository;
             }
         }
 
-        private IWorkoutRepository workoutRepository;
+        private IWorkoutRepository _workoutRepository;
 
         public IWorkoutRepository WorkoutRepository
         {
             get
             {
-                if (workoutRepository == null)
+                if (_workoutRepository == null)
                 {
-                    workoutRepository = new WorkoutRepository(applicationContext);
+                    _workoutRepository = new WorkoutRepository(applicationContext);
                 }
 
-                return workoutRepository;
+                return _workoutRepository;
             }
         }
 
-        private IClassRepository classRepository;
+        private IClassRepository _classRepository;
 
         public IClassRepository ClassRepository
         {
             get
             {
-                if (classRepository == null)
+                if (_classRepository == null)
                 {
-                    classRepository = new ClassRepository(applicationContext);
+                    _classRepository = new ClassRepository(applicationContext);
                 }
 
-                return classRepository;
+                return _classRepository;
             }
         }
 
-        private IClassRegistrationRepository classRegistrationRepository;
+        private IClassRegistrationRepository _classRegistrationRepository;
 
         public IClassRegistrationRepository ClassRegistrationRepository
         {
             get
             {
-                if (classRegistrationRepository == null)
+                if (_classRegistrationRepository == null)
                 {
-                    classRegistrationRepository = new ClassRegistrationRepository(applicationContext);
+                    _classRegistrationRepository = new ClassRegistrationRepository(applicationContext);
                 }
-                return classRegistrationRepository;
+                return _classRegistrationRepository;
+            }
+        }
+
+        private INewsFeedRepository _newsFeedRepository;
+
+        public INewsFeedRepository NewsFeedRepository
+        {
+            get
+            {
+                if (_newsFeedRepository == null)
+                {
+                    _newsFeedRepository = new NewsFeedRepository(applicationContext);
+                }
+
+                return _newsFeedRepository;
             }
         }
 

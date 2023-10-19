@@ -51,6 +51,7 @@
 
                                             <div class="col-md-6 text-end">
                                                 <p class="card-text">
+                                                    <a asp-action="WhosComing" class="text-info" asp-route-id="@item.ClassId"><i class="fas fa-eye"></i></a>
                                                     <a asp-action="Edit" class="text-warning" asp-route-id="@item.ClassId"><i class="fas fa-edit"></i></a>
                                                     <a asp-action="Delete" class="text-danger" asp-route-id="@item.ClassId"><i class="fas fa-trash-alt"></i></a>
                                                 </p>
@@ -61,7 +62,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <p class="card-text">
-                                                    @item.Date.ToString("hh:mm") - @item.DateTimeEnd.ToString("hh:mm")
+                                                    @item.Date.ToString("HH:mm") - @item.DateTimeEnd.ToString("HH:mm")
                                                 </p>
                                             </div>
 

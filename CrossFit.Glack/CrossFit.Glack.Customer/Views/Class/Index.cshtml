@@ -67,7 +67,11 @@
 
                                             <div class="col-md-6 text-end">
                                                 <p class="card-text">
-                                                    @item.SlotsTaken / @item.MaxAttendees
+                                                    @if (@item.SlotsTaken >= 1)
+                                                    {
+                                                        <a asp-action="WhosComing" class="text-info" asp-route-id="@item.ClassId" asp-route-date="@date.Date.ToString("dd/MM/yyyy")"><i class="fas fa-eye"></i></a>
+                                                    }
+                                                    <a asp-action="ReserveClass" class="text-success" asp-route-id="@item.ClassId" asp-route-date="@date.Date.ToString("dd/MM/yyyy")"><i class="fa fa-calendar-plus"></i></a>
                                                 </p>
                                             </div>
                                         </div>

@@ -195,6 +195,38 @@ namespace CrossFit.Glack.Domain.Migrations
                     b.ToTable("MembershipType");
                 });
 
+            modelBuilder.Entity("CrossFit.Glack.Domain.Models.NewsFeed", b =>
+                {
+                    b.Property<long>("NewsFeedId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("NewsFeedId"), 1L, 1);
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NewFeedMessage")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NewsFeedName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("UserCreated")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserGrant")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("NewsFeedId");
+
+                    b.ToTable("NewsFeed");
+                });
+
             modelBuilder.Entity("CrossFit.Glack.Domain.Models.Strength", b =>
                 {
                     b.Property<long>("StrengthId")

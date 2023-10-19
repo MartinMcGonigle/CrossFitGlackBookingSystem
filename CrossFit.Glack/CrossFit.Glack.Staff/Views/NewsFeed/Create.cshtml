@@ -1,0 +1,44 @@
+﻿@model NewsFeed
+@{
+    ViewData["Title"] = "Create Notification";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <a asp-action="Index" class="btn btn-sm btn-secondary"><i class="fas fa-chevron-left"></i> Go Back</a>
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md-6">
+        <section>
+            <form asp-action="Create" method="post">
+                <h4>Please enter notification details</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="card mb-3 bg-light">
+                    <div class="card-body">
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="NewsFeedName" class="form-control" />
+                            <label asp-for="NewsFeedName" class="form-label"></label>
+                            <span asp-validation-for="NewsFeedName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-floating mb-3">
+                            <input asp-for="NewFeedMessage" class="form-control" />
+                            <label asp-for="NewFeedMessage" class="form-label"></label>
+                            <span asp-validation-for="NewFeedMessage" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="w-100 btn btn-lg btn-success"><i class="fas fa-circle-plus"></i> Create Notification</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>

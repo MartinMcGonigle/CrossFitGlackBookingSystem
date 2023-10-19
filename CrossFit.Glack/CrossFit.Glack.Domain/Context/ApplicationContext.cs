@@ -29,5 +29,7 @@ namespace CrossFit.Glack.Domain.Context
         public DbSet<Class> Classes { get; set; }
         
         public DbSet<ClassRegistration> ClassRegistrations { get; set; }
+
+        public DbSet<NewsFeed> NewsFeeds { get; set; }
     }
 }
