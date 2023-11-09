@@ -7,13 +7,13 @@ namespace CrossFit.Glack.Domain.Models
     public class ClassRegistration
     {
         [Key]
-        public long ClassRegistrationId {  get; set; }
+        public long ClassRegistrationId { get; set; }
 
         public long? ClassId { get; set; }
 
         public string? UserId { get; set; }
 
-        public DateTime RegistrationTime { get; set; }
+        public bool? Present {  get; set; } 
 
         [ForeignKey("ClassId")]
         public Class? Class { get; set; }

@@ -74,8 +74,8 @@ namespace CrossFit.Glack.Domain.Migrations
                     b.Property<long?>("ClassId")
                         .HasColumnType("bigint");
 
-                    b.Property<DateTime>("RegistrationTime")
-                        .HasColumnType("datetime2");
+                    b.Property<bool?>("Present")
+                        .HasColumnType("bit");
 
                     b.Property<string>("UserId")
                         .HasColumnType("nvarchar(450)");
@@ -190,6 +190,15 @@ namespace CrossFit.Glack.Domain.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<int?>("NumberOfClasses")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("NumberOfMonths")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
                     b.HasKey("MembershipTypeId");
 
                     b.ToTable("MembershipType");
@@ -216,7 +225,6 @@ namespace CrossFit.Glack.Domain.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("UserCreated")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserGrant")

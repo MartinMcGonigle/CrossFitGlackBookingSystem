@@ -9,10 +9,13 @@ namespace CrossFit.Glack.Customer.Controllers
     public class WorkoutController : Controller
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
+        private readonly ILogger<WorkoutController> _logger;
+        public readonly string logPrefix = "Ctlr|Workout";
 
-        public WorkoutController(IRepositoryWrapper repositoryWrapper)
+        public WorkoutController(IRepositoryWrapper repositoryWrapper, ILogger<WorkoutController> logger)
         {
             _repositoryWrapper = repositoryWrapper;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -38,7 +41,7 @@ namespace CrossFit.Glack.Customer.Controllers
 
             ViewData["Date"] = dateTime;
 
-            return this.View(workout);
+            return View(workout);
         }
     }
 }

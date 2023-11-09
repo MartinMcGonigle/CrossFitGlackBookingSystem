@@ -19,7 +19,6 @@ namespace CrossFit.Glack.Repository.Repository
             .Include(x => x.Class)
             .Include(x => x.User)
             .Where(x => x.ClassId == id).ToList();
-
         }
     }
 }

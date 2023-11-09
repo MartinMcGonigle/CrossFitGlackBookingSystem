@@ -20,6 +20,7 @@ namespace CrossFit.Glack.Staff.Controllers
         private readonly IEmailSender _emailSender;
         private readonly IConfiguration _configuration;
         private readonly ILogger<UserController> _logger;
+        private readonly string logPrefix = "Ctlr|User";
 
         public UserController(
             UserManager<ApplicationUser> userManager,
@@ -40,6 +41,7 @@ namespace CrossFit.Glack.Staff.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            _logger.LogInformation($"{logPrefix} - Displaying all users");
             var users = _userManager.Users;
 
             foreach (var user in users)
@@ -53,10 +55,14 @@ namespace CrossFit.Glack.Staff.Controllers
         [HttpGet("Resend-Verification-Link/{id}")]
         public async Task<IActionResult> ResendVerificationLink(string id)
         {
+            _logger.LogInformation($"{logPrefix} - resending verification link to user with id: {id}");
             var user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
+            {
+                _logger.LogError($"{logPrefix} - failed to find user in the database with id: {id}");
                 return new NotFound();
+            }
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
             code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
@@ -108,7 +114,9 @@ namespace CrossFit.Glack.Staff.Controllers
             var user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
+            {
                 return new NotFound();
+            }
 
             return View(user);
         }
@@ -119,7 +127,11 @@ namespace CrossFit.Glack.Staff.Controllers
             var user = await _userManager.FindByIdAsync(id);
 
             if (user == null)
+            {
+                _logger.LogError($"{logPrefix} - failed to find user in the database with id: {id}");
                 return new NotFound();
+            }
+                
 
             if (ModelState.IsValid)
             {
@@ -133,7 +145,6 @@ namespace CrossFit.Glack.Staff.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation($"Successfully updated user account with id: {id}");
-
                     return RedirectToAction(nameof(this.Index));
                 }
                 foreach (var error in result.Errors)

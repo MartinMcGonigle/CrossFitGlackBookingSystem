@@ -73,6 +73,10 @@ namespace CrossFit.Glack.Staff.Controllers
             data.MembershipTypeTitle = model.MembershipTypeTitle;
             data.MembershipTypePrice = model.MembershipTypePrice;
             data.MembershipTypeDescription = model.MembershipTypeDescription;
+            data.MembershipTypeActive = model.MembershipTypeActive;
+            data.Type = model.Type;
+            data.NumberOfClasses = model.NumberOfClasses;
+            data.NumberOfMonths = model.NumberOfMonths;
 
             _logger.LogInformation($"{prefix} - Updating membership type with id: {data.MembershipTypeId}");
             _repositoryWrapper.MembershipTypeRepository.Update(data);

@@ -1,0 +1,11 @@
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\bin\Debug\net6.0\CrossFit.Glack.Common.deps.json
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\bin\Debug\net6.0\CrossFit.Glack.Common.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\bin\Debug\net6.0\CrossFit.Glack.Common.pdb
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\obj\Debug\net6.0\CrossFit.Glack.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\obj\Debug\net6.0\CrossFit.Glack.Common.AssemblyInfoInputs.cache
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\obj\Debug\net6.0\CrossFit.Glack.Common.AssemblyInfo.cs
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\obj\Debug\net6.0\CrossFit.Glack.Common.csproj.CoreCompileInputs.cache
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\obj\Debug\net6.0\CrossFit.Glack.Common.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\obj\Debug\net6.0\refint\CrossFit.Glack.Common.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\obj\Debug\net6.0\CrossFit.Glack.Common.pdb
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Common\obj\Debug\net6.0\ref\CrossFit.Glack.Common.dll

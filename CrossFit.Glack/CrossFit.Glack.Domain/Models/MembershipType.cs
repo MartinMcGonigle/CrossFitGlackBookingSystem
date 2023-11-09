@@ -23,8 +23,18 @@ namespace CrossFit.Glack.Domain.Models
         [Display(Name = "Description")]
         public string MembershipTypeDescription { get; set; }
 
+        [Display(Name = "Membership Active")]
         public bool MembershipTypeActive { get; set; }
 
-        // public ICollection<Membership> Memberships { get; set; }
+        [Range(1, 3, ErrorMessage = "Type of membership must be selected")]
+        public int Type {  get; set; }
+
+        [Display(Name = "Number of Classes")]
+        [Range(1, int.MaxValue, ErrorMessage = "Number of Classes must be greater than 0")]
+        public int? NumberOfClasses { get; set; }
+
+        [Display(Name = "Number of Months")]
+        [Range(1, int.MaxValue, ErrorMessage = "Number of Months must be greater than 0")]
+        public int? NumberOfMonths { get; set; }
     }
 }

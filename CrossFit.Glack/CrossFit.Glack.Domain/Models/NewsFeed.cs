@@ -6,6 +6,11 @@ namespace CrossFit.Glack.Domain.Models
     [Table("NewsFeed")]
     public class NewsFeed
     {
+        public NewsFeed()
+        {
+            UserGrantAcess = new List<string>();
+        }
+
         [Key]
         public long NewsFeedId { get; set; }
 
@@ -18,7 +23,7 @@ namespace CrossFit.Glack.Domain.Models
         [Display(Name = "Message")]
         public string NewFeedMessage { get; set; }
 
-        public string UserCreated { get; set; }
+        public string? UserCreated { get; set; }
 
         public DateTime DateCreated { get; set; }
 

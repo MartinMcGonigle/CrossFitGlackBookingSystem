@@ -59,5 +59,51 @@ namespace CrossFit.Glack.Repository.Repository
                 }
             }
         }
+
+        public IEnumerable<Class> GetTodaysClassesCustomer(DateTime dateTime, string userId)
+        {
+            var connection = new SqlConnection(Context.Database.GetDbConnection().ConnectionString);
+            try
+            {
+                string sp = "spSelectTodaysClassesCustomer";
+                connection.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("dateTime", dateTime);
+                parameters.Add("userId", userId);
+                var data = connection.Query<Class>(sp, parameters, commandType: CommandType.StoredProcedure);
+
+                return data;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
+
+        public IEnumerable<Class> GetClassesInFutureCustomer(DateTime dateTime, string userId)
+        {
+            var connection = new SqlConnection(Context.Database.GetDbConnection().ConnectionString);
+            try
+            {
+                string sp = "spSelectClassesInFutureCustomer";
+                connection.Open();
+                var parameters = new DynamicParameters();
+                parameters.Add("dateTime", dateTime);
+                parameters.Add("userId", userId);
+                var data = connection.Query<Class>(sp, parameters, commandType: CommandType.StoredProcedure);
+
+                return data;
+            }
+            finally
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+        }
     }
 }

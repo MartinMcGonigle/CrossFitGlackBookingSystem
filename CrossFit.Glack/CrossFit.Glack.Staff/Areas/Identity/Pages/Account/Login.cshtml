@@ -8,7 +8,7 @@
     <div class="col-md-6">
         <section>
             <form id="account" method="post">
-                <h2>Login to Your Account</h2>
+                <h4>Please use CrossFit Glack account to login</h4>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
@@ -43,30 +43,12 @@
                                 </p>
                             </div>
                         </div>
-
-                        @*
-                        <div>
-                            <div class="checkbox">
-                                <label asp-for="Input.RememberMe" class="form-label">
-                                    <input class="form-check-input" asp-for="Input.RememberMe" />
-                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
-                                </label>
-                            </div>
-                        </div>
-                        *@
                     </div>
                 </div>
                 
                 <div class="mb-3">
                     <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-primary">Login <i class="fas fa-sign-in-alt" aria-hidden="true"></i></button>
                 </div>
-                @*
-                <div class="mb-3"> 
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                </div>
-                *@
             </form>
         </section>
     </div>

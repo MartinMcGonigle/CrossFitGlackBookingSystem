@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using CrossFit.Glack.Domain.Context;
 using CrossFit.Glack.Domain.Models;
-using Microsoft.Extensions.Options;
 using CrossFit.Glack.Repository.Wrapper;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using CrossFit.Glack.Service.Messages;
@@ -64,7 +63,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     // Cookie settings
     options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    options.ExpireTimeSpan = TimeSpan.FromHours(5);
 
     options.Cookie.SameSite = Microsoft.AspNetCore.Http.SameSiteMode.Lax;
     options.SlidingExpiration = true;

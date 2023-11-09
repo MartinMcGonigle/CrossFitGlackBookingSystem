@@ -59,7 +59,7 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
                 if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
-                    return RedirectToPage("./ForgotPasswordConfirmation");
+                    return RedirectToPage("./ForgotPasswordConfirmation", new { email = Input.Email });
                 }
 
                 // For more information on how to enable account confirmation and password reset please
@@ -69,7 +69,7 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
                 var callbackUrl = Url.Page(
                     "/Account/ResetPassword",
                     pageHandler: null,
-                    values: new { area = "Identity", code },
+                    values: new { area = "Identity", code, email = user.Email },
                     protocol: Request.Scheme);
 
                 await _emailSender.SendEmailAsync(
@@ -77,7 +77,7 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
                     "Reset Password",
                     $"Please reset your password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                return RedirectToPage("./ForgotPasswordConfirmation");
+                return RedirectToPage("./ForgotPasswordConfirmation", new { email = Input.Email });
             }
 
             return Page();

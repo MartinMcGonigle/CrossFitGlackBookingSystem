@@ -67,11 +67,19 @@
 
                                             <div class="col-md-6 text-end">
                                                 <p class="card-text">
-                                                    @if (@item.SlotsTaken >= 1)
+                                                    @if (item.SlotsTaken >= 1)
                                                     {
                                                         <a asp-action="WhosComing" class="text-info" asp-route-id="@item.ClassId" asp-route-date="@date.Date.ToString("dd/MM/yyyy")"><i class="fas fa-eye"></i></a>
                                                     }
-                                                    <a asp-action="ReserveClass" class="text-success" asp-route-id="@item.ClassId" asp-route-date="@date.Date.ToString("dd/MM/yyyy")"><i class="fa fa-calendar-plus"></i></a>
+
+                                                    @if (item.ReservationId == null)
+                                                    {
+                                                        <a data-toggle="modal" data-id="@item.ClassId" data-startdate="@item.Date.ToString("dd/MM/yyyy")" data-enddate="@item.DateTimeEnd.Date.ToString("dd/MM/yyyy")" data-starttime="@item.Date.ToString("HH:mm")" data-endtime="@item.DateTimeEnd.ToString("HH:mm")" class="text-success add-register-class"><i class="fa fa-calendar-plus"></i></a>
+                                                    }
+                                                    else if (item.ReservationId != null)
+                                                    {
+                                                        <a data-toggle="modal" data-startdate="@item.Date.ToString("dd/MM/yyyy")" data-enddate="@item.DateTimeEnd.Date.ToString("dd/MM/yyyy")" data-starttime="@item.Date.ToString("HH:mm")" data-endtime="@item.DateTimeEnd.ToString("HH:mm")" data-reservationid="@item.ReservationId" class="text-danger cancel-class-reservation"><i class="fa fa-remove"></i></a>
+                                                    }
                                                 </p>
                                             </div>
                                         </div>
@@ -91,3 +99,31 @@
         </div>
     }
 </div>
+
+<div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-10">
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-close"></i> Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script src="~/js/_registerClass.js"></script>
+}

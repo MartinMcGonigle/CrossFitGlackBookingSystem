@@ -190,8 +190,47 @@ namespace CrossFit.Glack.Staff.Controllers
         {
             var classRegistration = _repositoryWrapper.ClassRegistrationRepository.GetReservations(id);
 
-            ViewData["Date"] = dateTime;
             return View(classRegistration);
+        }
+
+        [HttpPost]
+        public IActionResult MarkUserPresent(long classRegistrationId, long classId, string userId)
+        {
+            var classRegistration = _repositoryWrapper.ClassRegistrationRepository.FindByCondition(x => x.ClassRegistrationId == classRegistrationId && x.ClassId == classId && x.UserId == userId).FirstOrDefault();
+
+            if (classRegistration != null)
+            {
+                classRegistration.Present = true;
+
+                _repositoryWrapper.ClassRegistrationRepository.Update(classRegistration);
+                _repositoryWrapper.Save();
+
+                return Ok("User marked as present.");
+            }
+            else
+            {
+                return NotFound("Class registration not found.");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult MarkUserAbsent(long classRegistrationId, long classId, string userId)
+        {
+            var classRegistration = _repositoryWrapper.ClassRegistrationRepository.FindByCondition(x => x.ClassRegistrationId == classRegistrationId && x.ClassId == classId && x.UserId == userId).FirstOrDefault();
+
+            if (classRegistration != null)
+            {
+                classRegistration.Present = false;
+
+                _repositoryWrapper.ClassRegistrationRepository.Update(classRegistration);
+                _repositoryWrapper.Save();
+
+                return Ok("User marked as absent.");
+            }
+            else
+            {
+                return NotFound("Class registration not found.");
+            }
         }
     }
 }

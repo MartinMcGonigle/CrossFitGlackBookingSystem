@@ -12,11 +12,41 @@
 
 @if (Model.Any())
 {
-    
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <table class="table table-borderless">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="card mb-4 border border-primary">
+                                    <div class="card-header bg-secondary text-light border-bottom border-success">
+                                        <h5 class="modal-title">@item.NewsFeedName</h5>
+
+                                        <div class="float-end">
+                                            <a>@item.DateCreated.ToShortDateString()</a>
+                                            &nbsp;
+                                            <a asp-action="Edit" class="text-warning" asp-route-id="@item.NewsFeedId"><i class="fas fa-edit"></i></a>
+                                            &nbsp;
+                                            <a asp-action="Delete" class="text-danger" asp-route-id="@item.NewsFeedId"><i class="fas fa-trash-alt"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <p style="white-space:pre-wrap">@Html.Raw(item.NewFeedMessage)</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 }
 else
 {
-
     <div class="alert alert-info mt-4" role="alert">
         There are no notifications to display. Please try again after some time.
     </div>

@@ -47,5 +47,8 @@ namespace CrossFit.Glack.Domain.Models
 
         [NotMapped]
         public string? InstructorName { get; set; }
+
+        [NotMapped]
+        public long? ReservationId { get; set; }
     }
 }

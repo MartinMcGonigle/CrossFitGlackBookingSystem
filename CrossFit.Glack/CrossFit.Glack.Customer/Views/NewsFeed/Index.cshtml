@@ -1,0 +1,48 @@
+﻿@model IEnumerable<NewsFeed>
+@using System.Security.Claims;
+@{
+    ViewData["Title"] = "Notifications";
+    var claim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+}
+
+@if (Model.Any())
+{
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <table class="table table-borderless">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        @if (!item.UserGrantAcess.Contains(claim))
+                        {
+                            <tr>
+                                <td>
+                                    <div class="card mb-4 border border-primary">
+                                        <div class="card-header bg-secondary text-light border-bottom border-success">
+                                            <h5 class="modal-title">@item.NewsFeedName</h5>
+                                            
+                                            <div class="float-end">
+                                                <a>@item.DateCreated.ToShortDateString()</a>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="card-body">
+                                            <p style="white-space:pre-wrap">@Html.Raw(item.NewFeedMessage)</p>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-info mt-4" role="alert">
+        Nothing to see here folks! No notifications available.
+    </div>
+}

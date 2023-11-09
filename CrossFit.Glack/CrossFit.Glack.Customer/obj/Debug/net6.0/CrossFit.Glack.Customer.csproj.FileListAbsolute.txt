@@ -399,3 +399,4 @@ C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookin
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer\bin\Debug\net6.0\libman.json
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer\bin\Debug\net6.0\Dapper.dll
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer\bin\Debug\net6.0\DapperParameters.Nuget.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer\obj\Debug\net6.0\scopedcss\Areas\Identity\Pages\Account\_Layout.cshtml.rz.scp.css

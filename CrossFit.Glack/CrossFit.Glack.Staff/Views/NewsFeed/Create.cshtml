@@ -1,6 +1,8 @@
 ﻿@model NewsFeed
+@inject UserManager<ApplicationUser> _userManager
 @{
     ViewData["Title"] = "Create Notification";
+    var user = _userManager.Users.ToList();
 }
 
 <div class="row">
@@ -31,6 +33,52 @@
                             <input asp-for="NewFeedMessage" class="form-control" />
                             <label asp-for="NewFeedMessage" class="form-label"></label>
                             <span asp-validation-for="NewFeedMessage" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="mb-2" asp-for="UserGrant"></label>
+                            
+                            <table class="table table-bordered table-hover mb-1">
+                                <thead class="table-secondary">
+                                    <tr>
+                                        <th scope="col">
+                                            Email
+                                        </th>
+
+                                        <th scope="col">
+                                            Name
+                                        </th>
+
+                                        <th scope="col">
+                                            
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach((var account, int index) in user.Select((acce, index) => (Acce: acce, Index: index)))
+                                    {
+                                        <tr class="bg-white">
+                                            <td>@account.Email</td>
+                                            <td>@account.FirstName @account.LastName</td>
+                                            <td>
+                                                <div class="form-check">
+                                                    @if (Model != null)
+                                                    {
+                                                        var isSelected = Model.UserGrantAcess.Contains(account.Id);
+                                                        <input id="account_@(account.Id)" name="UserGrantAcess" type="checkbox" data-value="@(account.Id)" value="@(account.Id)" class="form-check-input" @(isSelected ? "checked" : "") />
+                                                    }
+                                                    else
+                                                    {
+                                                        <input id="account_@(account.Id)" name="UserGrantAcess" type="checkbox" data-value="@(account.Id)" value="@(account.Id)" class="form-check-input" />
+                                                    }
+                                                    <label class="form-check-label" for="account_@(account.Id)"></label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

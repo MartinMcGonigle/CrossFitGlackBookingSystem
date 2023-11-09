@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossFit.Glack.Repository",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CrossFit.Glack.Service", "CrossFit.Glack.Service\CrossFit.Glack.Service.csproj", "{1BA84820-1E1A-4AF2-86AD-EF0D0937058F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossFit.Glack.Common", "CrossFit.Glack.Common\CrossFit.Glack.Common.csproj", "{A11B936F-F0DA-4F7D-8413-F55745E4359D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{1BA84820-1E1A-4AF2-86AD-EF0D0937058F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1BA84820-1E1A-4AF2-86AD-EF0D0937058F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1BA84820-1E1A-4AF2-86AD-EF0D0937058F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A11B936F-F0DA-4F7D-8413-F55745E4359D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A11B936F-F0DA-4F7D-8413-F55745E4359D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A11B936F-F0DA-4F7D-8413-F55745E4359D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A11B936F-F0DA-4F7D-8413-F55745E4359D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{7E078C5E-B747-4617-9382-0A44C8639720} = {8E3251D6-4676-401C-976D-C8056E9F6E75}
 		{428F9404-5FE6-4A4F-999C-6057B069E642} = {FBB7D9E4-1E82-4168-9D1D-7F888A58408D}
 		{1BA84820-1E1A-4AF2-86AD-EF0D0937058F} = {FBB7D9E4-1E82-4168-9D1D-7F888A58408D}
+		{A11B936F-F0DA-4F7D-8413-F55745E4359D} = {8E3251D6-4676-401C-976D-C8056E9F6E75}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {734CCD10-9AFC-4084-87A2-85A82ADF9BAD}
