@@ -1,10 +1,10 @@
 ﻿using CrossFit.Glack.Domain.Models;
+using CrossFit.Glack.Domain.OtherModels;
 using CrossFit.Glack.Repository.Wrapper;
 using CrossFit.Glack.Service.Users;
 using CrossFit.Glack.Staff.ViewResult;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Globalization;
 
 namespace CrossFit.Glack.Staff.Controllers
@@ -40,7 +40,7 @@ namespace CrossFit.Glack.Staff.Controllers
             // Adjust the date based on the offset
             dateTime = dateTime.AddDays(offset);
 
-            IEnumerable<Class> data;
+            IEnumerable<ClassViewModel> data;
             if (dateTime.Date == DateTime.Today)
             {
                 DateTime currentDateTime = DateTime.Now;
@@ -53,7 +53,7 @@ namespace CrossFit.Glack.Staff.Controllers
             }
             else
             {
-                data = Enumerable.Empty<Class>();
+                data = Enumerable.Empty<ClassViewModel>();
             }
 
             ViewData["Date"] = dateTime;
@@ -145,6 +145,7 @@ namespace CrossFit.Glack.Staff.Controllers
             {
                 return View(model);
             }
+
             var existingClasses = _repositoryWrapper.ClassRepository.FindAll().Where(c => c.ClassId != model.ClassId);
             model.DateTimeEnd = model.Date.AddMinutes(model.DurationInMinutes);
 

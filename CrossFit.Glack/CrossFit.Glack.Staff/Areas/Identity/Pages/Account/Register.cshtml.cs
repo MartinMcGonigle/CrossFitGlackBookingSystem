@@ -100,19 +100,14 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
             [Display(Name = "Last Name")]
             [MaxLength(100)]
             public string LastName { get; set; }
-
-            [Display(Name = "Membership Type")]
-            public int MembershipTypeId { get; set; }
         }
 
         public async Task OnGetAsync(string returnUrl = null)
         {
             ReturnUrl = returnUrl;
             var roles = _roleManager.Roles.ToList();
-            var membershipTypes = _repositoryWrapper.MembershipTypeRepository.FindAll().Where(x => x.MembershipTypeActive);
 
             ViewData["roles"] = roles;
-            ViewData["membershipTypes"] = membershipTypes;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
@@ -151,20 +146,6 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
 
                     if (Input.Role == "Customer")
                     {
-                        var membership = new Membership
-                        {
-                            MembershipActive = true,
-                            MembershipCreationDate = DateTime.Now,
-                            MembershipStartDate = DateTime.Now,
-                            MembershipEndDate = DateTime.Now.AddMonths(1),
-                            ApplicationUserId = user.Id,
-                            MembershipTypeId = Input.MembershipTypeId,
-                            MembershipAutoRenew = true,
-                        };
-
-                        _repositoryWrapper.MembershipRepository.Create(membership);
-                        _repositoryWrapper.Save();
-
                         var staff = _configuration.GetSection("WebUrls").GetSection("Staff").Value;
                         var customer = _configuration.GetSection("WebUrls").GetSection("Customer").Value;
 
@@ -186,10 +167,7 @@ namespace CrossFit.Glack.Staff.Areas.Identity.Pages.Account
             }
 
             var roles = _roleManager.Roles.ToList();
-            var membershipTypes = _repositoryWrapper.MembershipTypeRepository.FindAll().Where(x => x.MembershipTypeActive);
-
             ViewData["roles"] = roles;
-            ViewData["membershipTypes"] = membershipTypes;
 
             return Page();
         }

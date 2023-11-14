@@ -1,5 +1,6 @@
 ﻿using CrossFit.Glack.Domain.Context;
 using CrossFit.Glack.Domain.Models;
+using CrossFit.Glack.Domain.OtherModels;
 using CrossFit.Glack.Repository.Interfaces;
 using Dapper;
 using Microsoft.Data.SqlClient;
@@ -15,9 +16,8 @@ namespace CrossFit.Glack.Repository.Repository
 
         }
 
-        public IEnumerable<Class> GetTodaysClasses(DateTime dateTime)
+        public IEnumerable<ClassViewModel> GetTodaysClasses(DateTime dateTime)
         {
-
             var connection = new SqlConnection(Context.Database.GetDbConnection().ConnectionString);
             try
             {
@@ -25,7 +25,7 @@ namespace CrossFit.Glack.Repository.Repository
                 connection.Open();
                 var parameters = new DynamicParameters();
                 parameters.Add("dateTime", dateTime);
-                var data = connection.Query<Class>(sp, parameters, commandType: CommandType.StoredProcedure);
+                var data = connection.Query<ClassViewModel>(sp, parameters, commandType: CommandType.StoredProcedure);
 
                 return data;
             }
@@ -38,7 +38,7 @@ namespace CrossFit.Glack.Repository.Repository
             }
         }
 
-        public IEnumerable<Class> GetClassesInFuture(DateTime dateTime)
+        public IEnumerable<ClassViewModel> GetClassesInFuture(DateTime dateTime)
         {
             var connection = new SqlConnection(Context.Database.GetDbConnection().ConnectionString);
             try
@@ -47,7 +47,7 @@ namespace CrossFit.Glack.Repository.Repository
                 connection.Open();
                 var parameters = new DynamicParameters();
                 parameters.Add("dateTime", dateTime);
-                var data = connection.Query<Class>(sp, parameters, commandType: CommandType.StoredProcedure);
+                var data = connection.Query<ClassViewModel>(sp, parameters, commandType: CommandType.StoredProcedure);
 
                 return data;
             }

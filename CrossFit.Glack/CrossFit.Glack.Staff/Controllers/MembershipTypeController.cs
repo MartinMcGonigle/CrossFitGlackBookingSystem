@@ -62,7 +62,7 @@ namespace CrossFit.Glack.Staff.Controllers
         [HttpPost]
         public IActionResult Edit(int membershipTypeId, MembershipType model)
         {
-            MembershipType data = _repositoryWrapper.MembershipTypeRepository.FindByCondition(x => x.MembershipTypeId == membershipTypeId).FirstOrDefault();
+            var data = _repositoryWrapper.MembershipTypeRepository.FindByCondition(x => x.MembershipTypeId == membershipTypeId).FirstOrDefault();
 
             if (data == null)
                 return new NotFound();
@@ -86,7 +86,7 @@ namespace CrossFit.Glack.Staff.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int membershipTypeId)
+        public IActionResult Deactivate(int membershipTypeId)
         {
             var membershipType = _repositoryWrapper.MembershipTypeRepository.FindByCondition(x => x.MembershipTypeId == membershipTypeId).FirstOrDefault();
 
@@ -96,6 +96,23 @@ namespace CrossFit.Glack.Staff.Controllers
             membershipType.MembershipTypeActive = false;
 
             _logger.LogInformation($"{prefix} - Deleting membership type with id: {membershipType.MembershipTypeId}");
+            _repositoryWrapper.MembershipTypeRepository.Update(membershipType);
+            _repositoryWrapper.Save();
+
+            return RedirectToAction(nameof(this.Index));
+        }
+
+        [HttpGet]
+        public IActionResult Reactivate(int membershipTypeId)
+        {
+            var membershipType = _repositoryWrapper.MembershipTypeRepository.FindByCondition(x => x.MembershipTypeId == membershipTypeId).FirstOrDefault();
+
+            if (membershipType == null)
+                return new NotFound();
+
+            membershipType.MembershipTypeActive = true;
+
+            _logger.LogInformation($"{prefix} - Reactivating membership type with id: {membershipType.MembershipTypeId}");
             _repositoryWrapper.MembershipTypeRepository.Update(membershipType);
             _repositoryWrapper.Save();
 

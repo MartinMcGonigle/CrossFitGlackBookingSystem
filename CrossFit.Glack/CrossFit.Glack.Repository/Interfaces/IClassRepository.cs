@@ -1,12 +1,13 @@
 ﻿using CrossFit.Glack.Domain.Models;
+using CrossFit.Glack.Domain.OtherModels;
 
 namespace CrossFit.Glack.Repository.Interfaces
 {
     public interface IClassRepository : IRepositoryBase<Class>
     {
-        public IEnumerable<Class> GetTodaysClasses(DateTime dateTime);
+        public IEnumerable<ClassViewModel> GetTodaysClasses(DateTime dateTime);
 
-        public IEnumerable<Class> GetClassesInFuture(DateTime dateTime);
+        public IEnumerable<ClassViewModel> GetClassesInFuture(DateTime dateTime);
 
         public IEnumerable<Class> GetTodaysClassesCustomer(DateTime dateTime, string userId);
 

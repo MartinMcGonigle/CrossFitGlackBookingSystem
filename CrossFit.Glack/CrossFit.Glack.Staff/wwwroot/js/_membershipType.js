@@ -3,6 +3,13 @@
         radioButtonChange();
     });
 
+    $("#propert-details-search").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#propert-details-table tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+        });
+    });
+
     radioButtonChange();
 });
 
@@ -46,4 +53,13 @@ function radioButtonChange() {
         $("#NumberOfClasses").val("");
         $("#NumberOfMonths").val("");
     }
+}
+
+function viewMembershipTypeDescription(link) {
+    var title = $(link).data('title');
+    var description = $(link).data('description');
+
+    $("#description-modal .modal-title").text(title);
+    $("#description-modal .modal-body p").text(description);
+    $("#description-modal").modal("show");
 }

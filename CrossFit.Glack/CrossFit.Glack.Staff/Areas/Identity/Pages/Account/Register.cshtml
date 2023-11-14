@@ -7,7 +7,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <a asp-controller="User" asp-action="Index" class="btn btn-sm btn-secondary"><i class="fas fa-chevron-left" aria-hidden="true"></i> Go Back</a>
+        <a asp-controller="User" asp-action="Index" class="btn btn-secondary"><i class="fas fa-chevron-left" aria-hidden="true"></i> Go Back</a>
     </div>
 </div>
 <br />
@@ -16,7 +16,7 @@
     <div class="col-md-6">
         <section> 
             <form asp-route-returnUrl="@Model.ReturnUrl" method="post" autocomplete="off">
-                <h2>Please enter user details</h2>
+                <h4>Please enter user details</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -51,18 +51,6 @@
                             </select>
                             <label asp-for="Input.Role" class="form-label"></label>
                             <span asp-validation-for="Input.Role" class="text-danger"></span>
-                        </div>
-
-                        <div class="form-floating mb-3 collapse" id="membershipTypeContainer">
-                            <select asp-for="Input.MembershipTypeId" class="form-control">
-                                <option disabled selected value="">-- Select Membership Type --</option>
-                                @foreach (var membershipType in (IEnumerable<MembershipType>)ViewData["membershipTypes"])
-                                {
-                                    <option value="@membershipType.MembershipTypeId">@membershipType.MembershipTypeTitle</option>
-                                }
-                            </select>
-                            <label asp-for="Input.MembershipTypeId" class="form-label"></label>
-                            <span asp-validation-for="Input.MembershipTypeId" class="text-danger"></span>
                         </div>
 
                         <div class="form-floating mb-3">

@@ -20,7 +20,7 @@ namespace CrossFit.Glack.Service.Users
 
             var users = superUsers.Union(staffUsers).Distinct().Select(user => new {
                 Id = user.Id,
-                FullName = $"{user.FirstName} {user.LastName}" // Concatenate first and last name
+                FullName = $"{user.FirstName} {user.LastName}"
             }).ToList();
 
             return new SelectList(users, "Id", "FullName");

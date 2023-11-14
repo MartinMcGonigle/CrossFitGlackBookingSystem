@@ -580,6 +580,7 @@ C:\Users\marti\Desktop\Booking\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFi
 C:\Users\marti\Desktop\Booking\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\ref\CrossFit.Glack.Staff.dll
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\appsettings.json
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\libman.json
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\CrossFit.Glack.Staff.staticwebassets.runtime.json
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\CrossFit.Glack.Staff.exe
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\CrossFit.Glack.Staff.deps.json
@@ -873,6 +874,8 @@ C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookin
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\refs\System.Xml.XPath.XDocument.dll
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\refs\WindowsBase.dll
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\Dapper.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\DapperParameters.Nuget.dll
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\Humanizer.dll
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\MailKit.dll
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\MessagePack.dll
@@ -1157,6 +1160,7 @@ C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookin
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\staticwebassets.pack.json
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\scopedcss\Areas\Identity\Pages\Account\_Layout.cshtml.rz.scp.css
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\scopedcss\bundle\CrossFit.Glack.Staff.styles.css
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\scopedcss\projectbundle\CrossFit.Glack.Staff.bundle.scp.css
@@ -1166,7 +1170,3 @@ C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookin
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\CrossFit.Glack.Staff.pdb
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\CrossFit.Glack.Staff.genruntimeconfig.cache
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\ref\CrossFit.Glack.Staff.dll
-C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\libman.json
-C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\Dapper.dll
-C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\bin\Debug\net6.0\DapperParameters.Nuget.dll
-C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Staff\obj\Debug\net6.0\scopedcss\Areas\Identity\Pages\Account\_Layout.cshtml.rz.scp.css
