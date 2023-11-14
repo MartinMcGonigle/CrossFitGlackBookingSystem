@@ -13,7 +13,9 @@ namespace CrossFit.Glack.Staff.Controllers
         private readonly ILogger<NewsFeedController> _logger;
         private readonly IRepositoryWrapper _repository;
 
-        public NewsFeedController(ILogger<NewsFeedController> logger, IRepositoryWrapper repository)
+        public NewsFeedController(
+            ILogger<NewsFeedController> logger,
+            IRepositoryWrapper repository)
         {
             _logger = logger;
             _repository = repository;

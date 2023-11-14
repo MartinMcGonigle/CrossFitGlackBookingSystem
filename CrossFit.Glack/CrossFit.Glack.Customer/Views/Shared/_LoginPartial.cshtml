@@ -7,6 +7,7 @@
     {
         @if (User.IsInRole("Customer"))
         {
+            <a class="dropdown-item" asp-controller="Purchase" asp-action="Start">Purchase</a>
             <a class="dropdown-item" asp-controller="Class" asp-action="Index">Classes</a>
             <a class="dropdown-item" asp-controller="Workout" asp-action="Index">Workouts</a>
             <a class="dropdown-item" asp-controller="NewsFeed" asp-action="Index">Notifications</a>

@@ -16,3 +16,7 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.greenborder {
+    border: 2px solid #172e67;
+}

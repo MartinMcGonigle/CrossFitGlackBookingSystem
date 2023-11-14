@@ -400,3 +400,4 @@ C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookin
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer\obj\Debug\net6.0\CrossFit.Glack.Customer.pdb
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer\obj\Debug\net6.0\CrossFit.Glack.Customer.genruntimeconfig.cache
 C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer\obj\Debug\net6.0\ref\CrossFit.Glack.Customer.dll
+C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer\obj\Debug\net6.0\scopedcss\Views\Shared\_PurchaseLayout.cshtml.rz.scp.css
