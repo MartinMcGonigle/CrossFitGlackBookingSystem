@@ -12,7 +12,7 @@ build_property.RootNamespace = CrossFit.Glack.Customer
 build_property.ProjectDir = C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = C:\Users\mcgoniglem\source\PortfolioProjects\MartinMcGonigle\CrossFitGlackBookingSystem\CrossFit.Glack\CrossFit.Glack.Customer
 build_property._RazorSourceGeneratorDebug = 
 
@@ -192,16 +192,40 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/MembershipType/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc2hpcFR5cGVcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/NewsFeed/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c0ZlZWRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/Purchase/ExistingMembership.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2VcRXhpc3RpbmdNZW1iZXJzaGlwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/Purchase/Finish.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2VcRmluaXNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/Purchase/MembershipDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2VcTWVtYmVyc2hpcERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/Purchase/MembershipTypeSelection.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2VcTWVtYmVyc2hpcFR5cGVTZWxlY3Rpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/Purchase/Review.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVyY2hhc2VcUmV2aWV3LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/Shared/_ErrorMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9FcnJvck1lc3NhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/mcgoniglem/source/PortfolioProjects/MartinMcGonigle/CrossFitGlackBookingSystem/CrossFit.Glack/CrossFit.Glack.Customer/Views/Shared/_LoginPartial.cshtml]

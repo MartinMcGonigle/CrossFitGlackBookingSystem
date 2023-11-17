@@ -1,0 +1,54 @@
+﻿@model Membership
+@{
+    ViewData["Title"] = "Review Membership Details";
+    Layout = "~/Views/Shared/_PurchaseLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <section>
+                <h4>Membership Review</h4>
+                <hr />
+
+                <div class="card mb-3 bg-light">
+                    <div class="card-body">
+                        <p><b>Membership:</b> @Model.MembershipType.MembershipTypeTitle</p>
+                        <p><b>Price:</b> £@string.Format("{0:N2}", Model.MembershipType.MembershipTypePrice)</p>
+
+                        @if (Model.MembershipType.Type == 1)
+                        {
+                            <p><b>Number of Classes Per Week:</b> @Model.MembershipType.NumberOfClasses</p>
+                        }
+                        else if (Model.MembershipType.Type == 2)
+                        {
+                            <p><b>Number of Classes:</b> @Model.MembershipType.NumberOfClasses</p>
+                            <p><b>Number of Months:</b> @Model.MembershipType.NumberOfMonths</p>
+                        }
+                        else
+                        {
+                            <p><b>Number of Classes:</b> Unlimited</p>
+                        }
+                        <p><b>Start Date:</b> @Model.MembershipStartDate.ToShortDateString()</p>
+                        <p><b>End Date:</b> @Model.MembershipEndDate.ToShortDateString()</p>
+                        <p><b>Auto Renew:</b> : @(Model.MembershipAutoRenew == true ? "Yes" : "No") </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+
+<a asp-controller="Purchase" asp-action="Finish" asp-route-id="@Model.MembershipId" class="w-100 btn btn-lg btn-success"><i class="fas fa-save" aria-hidden="true"></i> Purchase Membership</a>
+
+@section Progress {
+    @{
+        await Html.RenderPartialAsync("_Progress");
+    }
+}
+
+@section Menu {
+    @{
+        await Html.RenderPartialAsync("_Menu");
+    }
+}

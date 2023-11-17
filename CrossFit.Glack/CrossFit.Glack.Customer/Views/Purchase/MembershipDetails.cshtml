@@ -1,0 +1,87 @@
+﻿@model Membership
+@{
+    ViewData["Title"] = "Membership Details";
+    Layout = "~/Views/Shared/_PurchaseLayout.cshtml";
+}
+
+@Html.AntiForgeryToken()
+<div class="row">
+    <div class="col-md-12">
+        <section>
+            <form asp-action="MembershipDetails" method="post">
+                <h4>Please enter membership details</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="card mb-3 bg-light">
+                    <div class="card-body">
+
+                        <div class="form-check mb-3">
+                            @if (Model != null)
+                            {
+                                if (Model.MembershipAutoRenew == true)
+                                {
+                                    <input id="selectedMembershipAutoRenew" name="selectedMembershipAutoRenew" type="radio" class="form-check-input" value="True" checked />
+                                }
+                                else
+                                {
+                                    <input id="selectedMembershipAutoRenew" name="selectedMembershipAutoRenew" type="radio" class="form-check-input" value="True" />
+                                }
+                            }
+                            else
+                            {
+                                <input id="selectedMembershipAutoRenew" name="selectedMembershipAutoRenew" type="radio" class="form-check-input" value="True" />
+                            }
+                            
+                            <label class="form-check-label" for="autoRenew1">
+                                <b>Yes</b> - auto renew my membership
+                            </label>
+                        </div>
+
+                        <div class="form-check mb-3">
+                            @if (Model != null)
+                            {
+                                if (Model.MembershipAutoRenew == false)
+                                {
+                                    <input id="selectedMembershipAutoRenew" name="selectedMembershipAutoRenew" type="radio" class="form-check-input" value="False" checked />
+                                }
+                                else
+                                {
+                                    <input id="selectedMembershipAutoRenew" name="selectedMembershipAutoRenew" type="radio" class="form-check-input" value="False" />
+                                }
+                            }
+                            else
+                            {
+                                <input id="selectedMembershipAutoRenew" name="selectedMembershipAutoRenew" type="radio" class="form-check-input" value="False" />
+                            }
+                            <label class="form-check-label" for="autoRenew2">
+                                <b>No</b> - do not auto renew my membership
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <button style="display: none;" type="submit" id="saveContinueButtonMembershipDetails" class="w-100 btn btn-lg btn-success"><i class="fas fa-save" aria-hidden="true"></i> Save & Continue</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</div>
+
+@section Progress {
+    @{
+        await Html.RenderPartialAsync("_Progress");
+    }
+}
+
+@section Menu {
+    @{
+        await Html.RenderPartialAsync("_Menu");
+    }
+}
+
+@section scripts
+    {
+    <script src="~/js/_purchaseMembership.js"></script>
+}

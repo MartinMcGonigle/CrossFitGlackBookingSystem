@@ -8,10 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Shared\_ErrorMessage.cshtml" />
     <Content Remove="wwwroot\js\_classRegistration.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <_ContentIncludedByDefault Remove="Views\Shared\_ErrorMessage.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\js\_classRegistration.js" />
   </ItemGroup>
 
@@ -40,7 +42,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Views\Shared\_ErrorMessage.cshtml" />
     <None Include="wwwroot\js\_classRegistration.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Views\Shared\_ErrorMessage.cshtml" />
   </ItemGroup>
 
 </Project>

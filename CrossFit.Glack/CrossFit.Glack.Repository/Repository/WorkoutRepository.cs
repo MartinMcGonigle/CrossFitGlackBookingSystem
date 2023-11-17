@@ -14,7 +14,7 @@ namespace CrossFit.Glack.Repository.Repository
 
         public Workout GetWorkoutById(long id)
         {
-            return this.Context.Workouts.Include(x => x.Warmup)
+            return Context.Workouts.Include(x => x.Warmup)
                 .Include(x => x.Strength)
                 .Include(x => x.WOD)
                 .FirstOrDefault(x => x.WorkoutId == id);
@@ -22,7 +22,7 @@ namespace CrossFit.Glack.Repository.Repository
 
         public Workout GetWorkoutByDate(DateTime dateTime)
         {
-            return this.Context.Workouts.Include(x => x.Warmup)
+            return Context.Workouts.Include(x => x.Warmup)
                 .Include(x => x.Strength)
                 .Include(x => x.WOD)
                 .FirstOrDefault(x => x.Date == dateTime && x.Active);
